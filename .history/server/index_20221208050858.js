@@ -19,7 +19,6 @@ const membersOfCouncilRoute = require('./routes/membersOfCouncil.route')
 const memoryVerseRoute = require('./routes/memoryVerse.route')
 const partnerRoute = require('./routes/partner.route')
 const postRoute = require('./routes/post.route')
-const prayerMeetingBulletinRoute = require('./routes/prayerMeetingBulletin.route')
 const { port } = require("./config/index");
 const dbRoute = require('./routes/db.route');
  
@@ -47,7 +46,6 @@ app.use('/api', membersOfCouncilRoute)
 app.use('/api', memoryVerseRoute)
 app.use('/api', partnerRoute)
 app.use('/api', postRoute)
-app.use('/api', prayerMeetingBulletinRoute)
 app.use('/api', dbRoute)
 
 const server = http.createServer(app);
