@@ -15,7 +15,6 @@ const contactUsRoute = require('./routes/contactUs.route')
 const donationsRoute = require('./routes/donations.route')
 const meditationsRoute = require('./routes/meditations.route')
 const membershipsRoute = require('./routes/memberships.route')
-const membersOfCouncilRoute = require('./routes/membersOfCouncil.route')
 const { port } = require("./config/index");
 const dbRoute = require('./routes/db.route');
 
@@ -39,7 +38,6 @@ app.use('/api', contactUsRoute)
 app.use('/api', donationsRoute)
 app.use('/api', meditationsRoute)
 app.use('/api', membershipsRoute)
-app.use('/api', membersOfCouncilRoute)
 app.use('/api', dbRoute)
 
 const server = http.createServer(app);
