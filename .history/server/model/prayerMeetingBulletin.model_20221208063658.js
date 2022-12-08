@@ -6,7 +6,7 @@ const insertPrayerMeetingBulletin = async payload => {
     const prayerMeetingBulletin = await PrayerMeetingBulletinModel.create(payload)
     return {
       error: false,
-      message: 'Prayer Meeting Bulletin Data Submitted Successfully',
+      message: 'Post Data Submitted Successfully',
       statusCode: 201,
       data: prayerMeetingBulletin
     }

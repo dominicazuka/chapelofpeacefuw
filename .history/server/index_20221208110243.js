@@ -21,8 +21,6 @@ const partnerRoute = require('./routes/partner.route')
 const postRoute = require('./routes/post.route')
 const prayerMeetingBulletinRoute = require('./routes/prayerMeetingBulletin.route')
 const prayerRequestRoute = require('./routes/prayerRequest.route')
-const responseRoute = require('./routes/response.route')
-const servicesRoute = require('./routes/services.route')
 const { port } = require("./config/index");
 const dbRoute = require('./routes/db.route');
  
@@ -52,8 +50,6 @@ app.use('/api', partnerRoute)
 app.use('/api', postRoute)
 app.use('/api', prayerMeetingBulletinRoute)
 app.use('/api', prayerRequestRoute)
-app.use('/api', responseRoute)
-app.use('/api', servicesRoute)
 app.use('/api', dbRoute)
 
 const server = http.createServer(app);
