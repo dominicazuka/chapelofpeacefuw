@@ -41,6 +41,17 @@ body {
     }
 }
 
+#custom-target {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    border-style: solid;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
 #light {
     background-color: #ebf6f1;
 }

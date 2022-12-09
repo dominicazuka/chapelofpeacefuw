@@ -4,7 +4,6 @@ import Button from '@mui/material/Button'
 import { Input, TextField, Typography } from '@mui/material'
 import Axios from '../config'
 import Swal from 'sweetalert2'
-import { validateEmail } from '../utils'
 
 function Contact () {
   useEffect(() => {
@@ -14,14 +13,14 @@ function Contact () {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [subject, setSubject] = useState('')
-  const [content, setContent] = useState('')
+  const [comment, setComment] = useState('')
   const [loading, setLoading] = useState(false)
 
   const clearInput = () => {
     setName('')
     setEmail('')
     setSubject('')
-    setContent('')
+    setComment('')
   }
 
   const handleNameInput = e => {
@@ -36,8 +35,8 @@ function Contact () {
     setSubject(e.target.value)
   }
 
-  const handlecontentInput = e => {
-    setContent(e.target.value)
+  const handleCommentInput = e => {
+    setComment(e.target.value)
   }
 
   const handleSubmit = async e => {
@@ -45,50 +44,56 @@ function Contact () {
     try {
       let isError = false
       if (name.trim() === '') {
-        return Swal.fire({
+        Swal.fire({
           text: 'Please enter your full name',
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
-      if (!validateEmail(email.trim())) {
-        return Swal.fire({
-          text: 'Please enter a valid email address',
+
+      if (email.trim() === '') {
+        Swal.fire({
+          text: 'Please enter your email address',
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
       if (subject.trim() === '') {
-        return Swal.fire({
+        Swal.fire({
           text: 'Please enter a subject',
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
-      if (content.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your content',
+      if (comment.trim() === '') {
+        Swal.fire({
+          text: 'Please enter your comment',
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
-      if (isError) return false
-      setLoading(true)
-      const body = {
-        name,
-        email,
-        subject,
-        content
-      }
-      await Axios.post('/contact-us', body)
-      clearInput()
-      setLoading(false)
-      Swal.fire({
-        text: 'Contact data sent successfully',
-        icon: 'success',
-        animation: true,
-        confirmButtonColor: '#0000FF'
-      })
+
+      // if (isError) return false
+      // setLoading(true)
+      // const body = {
+      //   country,
+      //   countryCode,
+      //   name,
+      //   address,
+      //   phone,
+      //   location,
+      //   email,
+      //   time: fromTime + '-' + toTime,
+      //   days: 'Mon, Tues, Wed, Thur, Fri'
+      // }
+      // await Axios.post('/centers/createcenter', body)
+      // clearInput()
+      // setLoading(false)
+      // swal("Success", "Center added succesfully!", "info");
     } catch (error) {
       setLoading(false)
       // setMessage(error.message)
@@ -262,16 +267,16 @@ function Contact () {
           <Input
             fullWidth
             required
-            id='contents'
-            label='contents'
-            name='contents'
+            id='comments'
+            label='Comments'
+            name='comments'
             className='bordered form-control mt-3'
             margin='normal'
             multiline
             style={{ height: '100px', width: '100%' }}
-            placeholder='contents'
-            value={content}
-            onChange={handlecontentInput}
+            placeholder='Comments'
+            value={comment}
+            onChange={handleCommentInput}
           />
 
           <Grid container direction='row' spacing={2} style={{ marginTop: 20 }}>

@@ -4,7 +4,6 @@ import Button from '@mui/material/Button'
 import { Input, TextField, Typography } from '@mui/material'
 import Axios from '../config'
 import Swal from 'sweetalert2'
-import { validateEmail } from '../utils'
 
 function Contact () {
   useEffect(() => {
@@ -50,13 +49,15 @@ function Contact () {
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
-      if (!validateEmail(email.trim())) {
+      if (email.trim() === '') {
         return Swal.fire({
-          text: 'Please enter a valid email address',
+          text: 'Please enter your email address',
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
       if (subject.trim() === '') {
         return Swal.fire({
@@ -64,6 +65,7 @@ function Contact () {
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
       if (content.trim() === '') {
         return Swal.fire({
@@ -71,7 +73,9 @@ function Contact () {
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
+
       if (isError) return false
       setLoading(true)
       const body = {

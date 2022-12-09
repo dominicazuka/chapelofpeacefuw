@@ -50,6 +50,7 @@ function Contact () {
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
       if (!validateEmail(email.trim())) {
         return Swal.fire({
@@ -57,6 +58,7 @@ function Contact () {
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
       if (subject.trim() === '') {
         return Swal.fire({
@@ -64,6 +66,7 @@ function Contact () {
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
       if (content.trim() === '') {
         return Swal.fire({
@@ -71,7 +74,9 @@ function Contact () {
           toast: true,
           confirmButtonColor: '#0000FF'
         })
+        isError = true
       }
+
       if (isError) return false
       setLoading(true)
       const body = {
