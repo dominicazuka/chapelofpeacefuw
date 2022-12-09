@@ -25,7 +25,6 @@ const responseRoute = require('./routes/response.route')
 const servicesRoute = require('./routes/services.route')
 const sliderRoute = require('./routes/slider.route')
 const testimonialRoute = require('./routes/testimonial.route')
-const unitRoute = require('./routes/unit.route')
 const { port } = require("./config/index");
 const dbRoute = require('./routes/db.route');
  
@@ -59,7 +58,6 @@ app.use('/api', responseRoute)
 app.use('/api', servicesRoute)
 app.use('/api', sliderRoute)
 app.use('/api', testimonialRoute)
-app.use('/api', unitRoute)
 app.use('/api', dbRoute)
 
 const server = http.createServer(app);
