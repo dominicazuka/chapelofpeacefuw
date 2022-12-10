@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Input from '@mui/material/Input'
 import { Button, Grid, TextField, Typography, Checkbox } from '@mui/material'
 import { MuiTelInput } from 'mui-tel-input'
-import Swal from 'sweetalert2'
-import Axios from '../config'
 
 function ResponseForm () {
   const [phone_no, setPhone] = useState('')
@@ -25,118 +23,26 @@ function ResponseForm () {
     window.scrollTo(0, 0)
   }, [])
 
-  const handlePhoneChange = (e) => {
+  const handleFirstNameInput = e => {
+    e.preventDefault()
+    setFirstName(e.target.value)
+  }
+
+  const handleLastNameInput = e => {
+    e.preventDefault()
+    setLastName(e.target.value)
+  }
+
+  const handlePhoneChange = e => {
+    e.preventDefault()
     setPhone(e)
   }
 
-  const clearInput = () => {
-    setLastName('')
-    setPhone('')
-    setMaritalStatus('')
-    setLevel('')
-    setSex('')
-    setHostelName('')
-    setRoomNumber('')
-    setResidentialAddress('')
-    setReason('')
-    setPrayerPoint('')
-    setDepartment('')
-    setFirstName('')
-    setStatus('')
-  }
-
-  const handleSubmit = async e => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
     try {
-      if (firstName.trim() === '' || lastName.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your full name',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (phone_no.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your phone number',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (department.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your department',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (level.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your level',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (hostel_name.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your name',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (room_number.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your room number',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (reason.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your ',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (prayer_point.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your prayer point',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-      
-      const fullName = `${firstName} ` + `${lastName}`
-      setName(fullName)
-      const body = {
-        name,
-        sex,
-        marital_status,
-        phone_no,
-        status,
-        department,
-        level,
-        hostel_name,
-        room_number,
-        residential_address,
-        reason,
-        prayer_point
-      }
-      await Axios.post('/response', body)
-      clearInput()
-      Swal.fire({
-        text: 'Response data sent successfully',
-        icon: 'success',
-        animation: true,
-        confirmButtonColor: '#0000FF'
-      })
-      window.scrollTo(0, 0);
+      const fullName = `${firstName}` + `${lastName}`
+      console.log('full Name', fullName)
     } catch (error) {
       console.log(error)
     }
@@ -190,7 +96,7 @@ function ResponseForm () {
                 name='firstName'
                 margin='normal'
                 value={firstName}
-                onChange={e => setFirstName(e.target.value)}
+                onChange={handleFirstNameInput}
               />
             </Grid>
             <Grid item>
@@ -203,7 +109,7 @@ function ResponseForm () {
                 className='mb-3'
                 margin='normal'
                 value={lastName}
-                onChange={e => setLastName(e.target.value)}
+                onChange={handleLastNameInput}
               />
             </Grid>
           </Grid>
@@ -318,8 +224,6 @@ function ResponseForm () {
                 name='department'
                 className='bordered form-control'
                 placeholder='Department'
-                value={department}
-                onChange={e => setDepartment(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -334,8 +238,6 @@ function ResponseForm () {
                 name='level'
                 className='bordered form-control'
                 placeholder='Level'
-                value={level}
-                onChange={e => setLevel(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -350,8 +252,6 @@ function ResponseForm () {
                 name='hostelName'
                 className='bordered form-control'
                 placeholder='Hostel Name'
-                value={hostel_name}
-                onChange={e => setHostelName(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -368,8 +268,6 @@ function ResponseForm () {
             className='bordered form-control mt-4'
             inputProps={{ maxLength: 12 }}
             placeholder='Room Number'
-            value={room_number}
-            onChange={e => setRoomNumber(e.target.value)}
           />
 
           <label className='mt-4'>
@@ -385,8 +283,6 @@ function ResponseForm () {
                 className='bordered form-control'
                 placeholder='Residential Address'
                 style={{ height: '150px' }}
-                value={residential_address}
-                onChange={e => setResidentialAddress(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -402,8 +298,6 @@ function ResponseForm () {
                 className='bordered form-control'
                 placeholder='Reason for your response'
                 style={{ height: '100px', width: '100%' }}
-                value={reason}
-                onChange={e => setReason(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -419,8 +313,6 @@ function ResponseForm () {
                 className='bordered form-control'
                 placeholder='Prayer Point(s)'
                 style={{ height: '100px', width: '100%' }}
-                value={prayer_point}
-                onChange={e => setPrayerPoint(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -429,7 +321,7 @@ function ResponseForm () {
             size='small'
             color='primary'
             className='mt-4 mb-4'
-            onClick={handleSubmit}
+            onChange={handleSubmit}
           >
             Submit
           </Button>

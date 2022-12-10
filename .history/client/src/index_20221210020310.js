@@ -20,15 +20,16 @@ root.render (
       {/* <Online> */}
           <App />
         <BackToTopButton />
+        <div id='custom-target'></div>
         {/* </Online> */}
-        {/* <Offline>
+        <Offline>
           <NavBarOffCanvas/>
           <div className="max-w-sm mr-2 ml-2 px-3 py-5 shadow mx-auto white-bg text-center black-text rounded-lg" style={{marginTop:"30px"}}>
           <p className="mt-5">You are currently offline, please turn on your internet and refresh the browser connection to continue..</p>
           </div>
           <Footer />
           <BackToTopButton />
-        </Offline> */}
+        </Offline>
     </BrowserRouter>
     <BackToTopButton />
   </React.StrictMode>

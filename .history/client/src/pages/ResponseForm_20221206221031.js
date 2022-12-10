@@ -1,145 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import Input from '@mui/material/Input'
 import { Button, Grid, TextField, Typography, Checkbox } from '@mui/material'
+import { DatePicker, Space } from 'antd'
+import moment from 'moment'
+import { Country, State, City } from 'country-state-city'
 import { MuiTelInput } from 'mui-tel-input'
-import Swal from 'sweetalert2'
-import Axios from '../config'
+import { FileUploader } from 'react-drag-drop-files'
 
 function ResponseForm () {
-  const [phone_no, setPhone] = useState('')
-  const [sex, setSex] = useState('male')
-  const [marital_status, setMaritalStatus] = useState('single')
-  const [status, setStatus] = useState('student')
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [name, setName] = useState('')
-  const [department, setDepartment] = useState('')
-  const [level, setLevel] = useState('')
-  const [hostel_name, setHostelName] = useState('')
-  const [room_number, setRoomNumber] = useState('')
-  const [residential_address, setResidentialAddress] = useState('')
-  const [reason, setReason] = useState('')
-  const [prayer_point, setPrayerPoint] = useState('')
+  const [phone, setPhone] = useState('')
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  const handlePhoneChange = (e) => {
-    setPhone(e)
-  }
-
-  const clearInput = () => {
-    setLastName('')
-    setPhone('')
-    setMaritalStatus('')
-    setLevel('')
-    setSex('')
-    setHostelName('')
-    setRoomNumber('')
-    setResidentialAddress('')
-    setReason('')
-    setPrayerPoint('')
-    setDepartment('')
-    setFirstName('')
-    setStatus('')
-  }
-
-  const handleSubmit = async e => {
-    e.preventDefault()
-    try {
-      if (firstName.trim() === '' || lastName.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your full name',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (phone_no.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your phone number',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (department.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your department',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (level.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your level',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (hostel_name.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your name',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (room_number.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your room number',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (reason.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your ',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (prayer_point.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your prayer point',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-      
-      const fullName = `${firstName} ` + `${lastName}`
-      setName(fullName)
-      const body = {
-        name,
-        sex,
-        marital_status,
-        phone_no,
-        status,
-        department,
-        level,
-        hostel_name,
-        room_number,
-        residential_address,
-        reason,
-        prayer_point
-      }
-      await Axios.post('/response', body)
-      clearInput()
-      Swal.fire({
-        text: 'Response data sent successfully',
-        icon: 'success',
-        animation: true,
-        confirmButtonColor: '#0000FF'
-      })
-      window.scrollTo(0, 0);
-    } catch (error) {
-      console.log(error)
-    }
+  const handlePhoneChange = newPhone => {
+    setPhone(newPhone)
   }
 
   return (
@@ -157,7 +33,7 @@ function ResponseForm () {
         columns={12}
         justifyContent='center'
         alignItems='center'
-        sx={{ padding: '10px' }}
+        sx={{padding:"10px"}}
       >
         <Grid item xs={12} sm={12} md={5}>
           <Typography
@@ -189,8 +65,6 @@ function ResponseForm () {
                 label='First Name'
                 name='firstName'
                 margin='normal'
-                value={firstName}
-                onChange={e => setFirstName(e.target.value)}
               />
             </Grid>
             <Grid item>
@@ -202,8 +76,6 @@ function ResponseForm () {
                 name='surname'
                 className='mb-3'
                 margin='normal'
-                value={lastName}
-                onChange={e => setLastName(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -211,19 +83,13 @@ function ResponseForm () {
           <label>Sex:</label>
           <Grid container direction='row' spacing={2}>
             <Grid item>
-              <Checkbox
-                checked={sex === 'male'}
-                onChange={() => setSex('male')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='male'>
                 Male
               </label>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={sex === 'female'}
-                onChange={() => setSex('female')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='female'>
                 Female
               </label>
@@ -233,37 +99,25 @@ function ResponseForm () {
           <label className='mt-3'>Marital Status:</label>
           <Grid container direction='row' spacing={4}>
             <Grid item>
-              <Checkbox
-                checked={marital_status === 'single'}
-                onChange={() => setMaritalStatus('single')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='single'>
                 Single
               </label>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={marital_status === 'married'}
-                onChange={() => setMaritalStatus('married')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='married'>
                 Married
               </label>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={marital_status === 'widowed'}
-                onChange={() => setMaritalStatus('widowed')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='widowed'>
                 Widowed
               </label>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={marital_status === 'divorced'}
-                onChange={() => setMaritalStatus('divorced')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='divorced'>
                 Divorced
               </label>
@@ -271,7 +125,7 @@ function ResponseForm () {
           </Grid>
           <label className='mt-3'>Phone Number:</label>
           <MuiTelInput
-            value={phone_no}
+            value={phone}
             onChange={handlePhoneChange}
             className='form-control mt-3'
             placeholder='Phone Number (+234)'
@@ -280,28 +134,19 @@ function ResponseForm () {
           <label className='mt-3'>What best describes you?:</label>
           <Grid container direction='row' spacing={3}>
             <Grid item>
-              <Checkbox
-                checked={status === 'student'}
-                onChange={() => setStatus('student')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='student'>
                 Student
               </label>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={status === 'staff'}
-                onChange={() => setStatus('staff')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='staff'>
                 Staff
               </label>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={status === 'other'}
-                onChange={() => setStatus('other')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='other'>
                 Other
               </label>
@@ -318,8 +163,6 @@ function ResponseForm () {
                 name='department'
                 className='bordered form-control'
                 placeholder='Department'
-                value={department}
-                onChange={e => setDepartment(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -334,8 +177,6 @@ function ResponseForm () {
                 name='level'
                 className='bordered form-control'
                 placeholder='Level'
-                value={level}
-                onChange={e => setLevel(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -350,8 +191,6 @@ function ResponseForm () {
                 name='hostelName'
                 className='bordered form-control'
                 placeholder='Hostel Name'
-                value={hostel_name}
-                onChange={e => setHostelName(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -368,8 +207,6 @@ function ResponseForm () {
             className='bordered form-control mt-4'
             inputProps={{ maxLength: 12 }}
             placeholder='Room Number'
-            value={room_number}
-            onChange={e => setRoomNumber(e.target.value)}
           />
 
           <label className='mt-4'>
@@ -385,8 +222,6 @@ function ResponseForm () {
                 className='bordered form-control'
                 placeholder='Residential Address'
                 style={{ height: '150px' }}
-                value={residential_address}
-                onChange={e => setResidentialAddress(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -402,8 +237,6 @@ function ResponseForm () {
                 className='bordered form-control'
                 placeholder='Reason for your response'
                 style={{ height: '100px', width: '100%' }}
-                value={reason}
-                onChange={e => setReason(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -419,8 +252,6 @@ function ResponseForm () {
                 className='bordered form-control'
                 placeholder='Prayer Point(s)'
                 style={{ height: '100px', width: '100%' }}
-                value={prayer_point}
-                onChange={e => setPrayerPoint(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -429,7 +260,6 @@ function ResponseForm () {
             size='small'
             color='primary'
             className='mt-4 mb-4'
-            onClick={handleSubmit}
           >
             Submit
           </Button>

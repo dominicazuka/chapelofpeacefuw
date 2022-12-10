@@ -25,10 +25,6 @@ function ResponseForm () {
     window.scrollTo(0, 0)
   }, [])
 
-  const handlePhoneChange = (e) => {
-    setPhone(e)
-  }
-
   const clearInput = () => {
     setLastName('')
     setPhone('')
@@ -42,10 +38,10 @@ function ResponseForm () {
     setPrayerPoint('')
     setDepartment('')
     setFirstName('')
-    setStatus('')
   }
 
   const handleSubmit = async e => {
+    console.log('submit')
     e.preventDefault()
     try {
       if (firstName.trim() === '' || lastName.trim() === ''){
@@ -87,56 +83,9 @@ function ResponseForm () {
           confirmButtonColor: '#0000FF'
         })
       }
-
-      if (room_number.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your room number',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (reason.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your ',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (prayer_point.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your prayer point',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-      
       const fullName = `${firstName} ` + `${lastName}`
+      console.log('full Name', fullName)
       setName(fullName)
-      const body = {
-        name,
-        sex,
-        marital_status,
-        phone_no,
-        status,
-        department,
-        level,
-        hostel_name,
-        room_number,
-        residential_address,
-        reason,
-        prayer_point
-      }
-      await Axios.post('/response', body)
-      clearInput()
-      Swal.fire({
-        text: 'Response data sent successfully',
-        icon: 'success',
-        animation: true,
-        confirmButtonColor: '#0000FF'
-      })
-      window.scrollTo(0, 0);
     } catch (error) {
       console.log(error)
     }
@@ -272,7 +221,7 @@ function ResponseForm () {
           <label className='mt-3'>Phone Number:</label>
           <MuiTelInput
             value={phone_no}
-            onChange={handlePhoneChange}
+            onChange={e => setPhone(e.target.value)}
             className='form-control mt-3'
             placeholder='Phone Number (+234)'
           />

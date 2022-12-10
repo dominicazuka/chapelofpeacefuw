@@ -42,10 +42,10 @@ function ResponseForm () {
     setPrayerPoint('')
     setDepartment('')
     setFirstName('')
-    setStatus('')
   }
 
   const handleSubmit = async e => {
+    console.log('submit')
     e.preventDefault()
     try {
       if (firstName.trim() === '' || lastName.trim() === ''){
@@ -113,6 +113,7 @@ function ResponseForm () {
       }
       
       const fullName = `${firstName} ` + `${lastName}`
+      console.log('full Name', fullName)
       setName(fullName)
       const body = {
         name,
@@ -123,7 +124,6 @@ function ResponseForm () {
         department,
         level,
         hostel_name,
-        room_number,
         residential_address,
         reason,
         prayer_point
@@ -136,7 +136,6 @@ function ResponseForm () {
         animation: true,
         confirmButtonColor: '#0000FF'
       })
-      window.scrollTo(0, 0);
     } catch (error) {
       console.log(error)
     }

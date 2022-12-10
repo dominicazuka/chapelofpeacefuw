@@ -25,10 +25,6 @@ function ResponseForm () {
     window.scrollTo(0, 0)
   }, [])
 
-  const handlePhoneChange = (e) => {
-    setPhone(e)
-  }
-
   const clearInput = () => {
     setLastName('')
     setPhone('')
@@ -42,10 +38,10 @@ function ResponseForm () {
     setPrayerPoint('')
     setDepartment('')
     setFirstName('')
-    setStatus('')
   }
 
   const handleSubmit = async e => {
+    console.log('submit')
     e.preventDefault()
     try {
       if (firstName.trim() === '' || lastName.trim() === ''){
@@ -113,6 +109,7 @@ function ResponseForm () {
       }
       
       const fullName = `${firstName} ` + `${lastName}`
+      console.log('full Name', fullName)
       setName(fullName)
       const body = {
         name,
@@ -123,7 +120,6 @@ function ResponseForm () {
         department,
         level,
         hostel_name,
-        room_number,
         residential_address,
         reason,
         prayer_point
@@ -136,7 +132,6 @@ function ResponseForm () {
         animation: true,
         confirmButtonColor: '#0000FF'
       })
-      window.scrollTo(0, 0);
     } catch (error) {
       console.log(error)
     }
@@ -272,7 +267,7 @@ function ResponseForm () {
           <label className='mt-3'>Phone Number:</label>
           <MuiTelInput
             value={phone_no}
-            onChange={handlePhoneChange}
+            onChange={e => setPhone(e.target.value)}
             className='form-control mt-3'
             placeholder='Phone Number (+234)'
           />

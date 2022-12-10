@@ -42,10 +42,10 @@ function ResponseForm () {
     setPrayerPoint('')
     setDepartment('')
     setFirstName('')
-    setStatus('')
   }
 
   const handleSubmit = async e => {
+    console.log('submit')
     e.preventDefault()
     try {
       if (firstName.trim() === '' || lastName.trim() === ''){
@@ -113,6 +113,7 @@ function ResponseForm () {
       }
       
       const fullName = `${firstName} ` + `${lastName}`
+      console.log('full Name', fullName)
       setName(fullName)
       const body = {
         name,
