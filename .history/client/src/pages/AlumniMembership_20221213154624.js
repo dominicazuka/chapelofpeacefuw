@@ -345,6 +345,17 @@ function AlumniMembership () {
               />
             </Grid>
           </Grid>
+
+          
+
+          <Button
+            variant='contained'
+            size='small'
+            color='warning'
+            className='mt-4 mb-4'
+          >
+            Submit
+          </Button>
         </Grid>
         <Grid item xs={12} sm={12} md={5}>
           <FileUploader
@@ -355,18 +366,6 @@ function AlumniMembership () {
             types={fileTypes}
           />
         </Grid>
-      </Grid>
-      <Grid xs={12} sm={12} md={12} justifyContent='center'
-        alignItems='center'
-        sx={{padding:"10px"}}>
-        <Button
-            variant='contained'
-            size='small'
-            color='warning'
-            className='mt-4 mb-4'
-          >
-            Submit
-        </Button>
       </Grid>
     </>
   )

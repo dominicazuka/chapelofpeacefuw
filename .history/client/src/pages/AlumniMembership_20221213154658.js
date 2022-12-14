@@ -355,10 +355,7 @@ function AlumniMembership () {
             types={fileTypes}
           />
         </Grid>
-      </Grid>
-      <Grid xs={12} sm={12} md={12} justifyContent='center'
-        alignItems='center'
-        sx={{padding:"10px"}}>
+
         <Button
             variant='contained'
             size='small'
@@ -366,7 +363,7 @@ function AlumniMembership () {
             className='mt-4 mb-4'
           >
             Submit
-        </Button>
+          </Button>
       </Grid>
     </>
   )

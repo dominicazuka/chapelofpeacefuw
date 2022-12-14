@@ -10,23 +10,14 @@ import {
   Typography
 } from '@mui/material'
 import { MuiTelInput } from 'mui-tel-input'
-import Axios from '../config'
-import Swal from 'sweetalert2'
-import { validateEmail } from '../utils'
 
 function Givings () {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone_no, setPhone] = useState('')
+  const [phone, setPhone] = useState('')
   const [amount, setAmount] = useState()
-  const [purpose, setPurpose] = useState('offering')
-  const [gateway, setGateway] = useState('')
-  const [details, setDetails] = useState('')
-
   const handlePhoneChange = newPhone => {
     setPhone(newPhone)
   }
@@ -34,72 +25,6 @@ function Givings () {
     const regex = /^[0-9\b]+$/
     if (e.target.value == '' || regex.test(e.target.value)) {
       setAmount(e.target.value)
-    }
-  }
-
-  const clearInput = () => {
-    setName('')
-    setPhone('')
-    setPurpose('')
-    setAmount('')
-    setGateway('')
-    setDetails('')
-    setEmail('')
-  }
-
-  const handleSubmit = async e => {
-    e.preventDefault()
-    try {
-      let isError = false
-      if (name.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your full name',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-      if (!validateEmail(email.trim())) {
-        return Swal.fire({
-          text: 'Please enter a valid email address',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-      if (purpose.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter a purpose',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-      if (amount.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your desired amount',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })  
-      }
-      if (isError) return false
-      const body = {
-        name,
-        email,
-        purpose,
-        amount,
-        phone_no,
-        gateway:"payPal",
-        details:"test"
-      }
-      await Axios.post('/donations', body)
-      clearInput()
-      Swal.fire({
-        text: 'Donations paid successfully',
-        icon: 'success',
-        animation: true,
-        confirmButtonColor: '#0000FF'
-      })
-      window.scrollTo(0, 0)
-    } catch (error) {
-      // setMessage(error.message)
     }
   }
 
@@ -136,8 +61,6 @@ function Givings () {
             name='fullName'
             className=''
             margin='normal'
-            value={name}
-            onChange={e => setName(e.target.value)}
           />
           <TextField
             fullWidth
@@ -147,11 +70,9 @@ function Givings () {
             name='email'
             className=''
             margin='normal'
-            value={email}
-            onChange={e => setEmail(e.target.value)}
           />
           <MuiTelInput
-            value={phone_no}
+            value={phone}
             onChange={handlePhoneChange}
             className='form-control mt-3'
             placeholder='Phone Number (+234)'
@@ -163,7 +84,7 @@ function Givings () {
             label='Amount (NGN)'
             name='amount'
             margin='normal'
-            onChange={e => setAmount(e.target.value)}
+            onChange={e => handleAmountChange(e)}
             defaultValue={amount}
             className='bordered form-control mt-4'
             inputProps={{ maxLength: 12 }}
@@ -181,40 +102,28 @@ function Givings () {
             alignItems='center'
           >
             <Grid item xs={6} sm={6} md={3}>
-              <Checkbox
-              checked={purpose === 'offering'}
-                onChange={() => setPurpose('offering')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='offering'>
                 Offering
               </label>
             </Grid>
 
             <Grid item xs={6} sm={6} md={3}>
-              <Checkbox
-              checked={purpose === 'tithe'}
-              onChange={() => setPurpose('tithe')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='tithe'>
                 Tithe
               </label>
             </Grid>
 
             <Grid item xs={6} sm={6} md={3}>
-              <Checkbox
-              checked={purpose === 'building project'}
-              onChange={() => setPurpose('building project')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='biuildingProject'>
                 Building Project
               </label>
             </Grid>
 
             <Grid item xs={6} sm={6} md={3}>
-              <Checkbox
-              checked={purpose === 'welfare'}
-              onChange={() => setPurpose('welfare')}
-              />
+              <Checkbox />
               <label class='form-check-label' for='welfare'>
                 Welfare
               </label>
@@ -248,16 +157,12 @@ function Givings () {
               >
                 
                 <Grid item align="center">
-                  <Button variant='contained' size='small' color='warning' align="center"
-                  onClick={clearInput}
-                  >
+                  <Button variant='contained' size='small' color='warning' align="center">
                     Reset
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant='contained' size='small' color='success' align="center"
-                  onClick={handleSubmit}
-                  >
+                  <Button variant='contained' size='small' color='success' align="center">
                     Pay
                   </Button>
                 </Grid>

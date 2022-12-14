@@ -71,7 +71,7 @@ function AlumniMembership () {
         columns={12}
         justifyContent='center'
         alignItems='center'
-        sx={{padding:"10px"}}
+        sx={{ padding: '10px' }}
       >
         <Grid item xs={12} sm={12} md={5}>
           <label>Full Name:</label>
@@ -344,29 +344,26 @@ function AlumniMembership () {
                 style={{ height: '100px', width: '100%' }}
               />
             </Grid>
+            <Grid item xs={12} sm={12} md={5}>
+              <FileUploader
+                multiple={true}
+                handleChange={handleUploadFileChange}
+                name='file'
+                className='form-control'
+                types={fileTypes}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={12} sm={12} md={5}>
-          <FileUploader
-            multiple={true}
-            handleChange={handleUploadFileChange}
-            name='file'
-            className='form-control'
-            types={fileTypes}
-          />
-        </Grid>
-      </Grid>
-      <Grid xs={12} sm={12} md={12} justifyContent='center'
-        alignItems='center'
-        sx={{padding:"10px"}}>
-        <Button
+
+          <Button
             variant='contained'
             size='small'
             color='warning'
             className='mt-4 mb-4'
           >
             Submit
-        </Button>
+          </Button>
+        </Grid>
       </Grid>
     </>
   )

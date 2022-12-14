@@ -356,9 +356,7 @@ function AlumniMembership () {
           />
         </Grid>
       </Grid>
-      <Grid xs={12} sm={12} md={12} justifyContent='center'
-        alignItems='center'
-        sx={{padding:"10px"}}>
+      <Grid container direction='row' spacing={3}>
         <Button
             variant='contained'
             size='small'

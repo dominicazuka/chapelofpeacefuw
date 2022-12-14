@@ -288,13 +288,13 @@ const clearInput = () => {
         })
       }
 
-      // if (service_unit.trim() === '') {
-      //   return Swal.fire({
-      //     text: 'Please select your service unit',
-      //     toast: true,
-      //     confirmButtonColor: '#0000FF'
-      //   })
-      // }
+      if (service_unit.trim() === '') {
+        return Swal.fire({
+          text: 'Please select your service unit',
+          toast: true,
+          confirmButtonColor: '#0000FF'
+        })
+      }
 
       if (content.trim() === '') {
         return Swal.fire({

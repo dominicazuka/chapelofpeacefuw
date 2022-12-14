@@ -1,82 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import Input from '@mui/material/Input'
-import { Button, Checkbox, Grid, TextField, Typography } from '@mui/material'
+import { Button, Grid, TextField, Typography } from '@mui/material'
 import { DatePicker, Space } from 'antd'
 import moment from 'moment'
 import { Country, State, City } from 'country-state-city'
 import { MuiTelInput } from 'mui-tel-input'
 import { FileUploader } from 'react-drag-drop-files'
-import Axios from '../config'
-import Swal from 'sweetalert2'
-import { validateEmail } from '../utils'
 
 function Membership () {
-  const [date_of_birth, setDate] = useState(null)
+  const [date, setDate] = useState(null)
   const [country, setCountry] = useState('')
   const [countryCode, setCountryCode] = useState('')
   const [city, setCity] = useState('')
   const [cities, setCities] = useState([])
   const [state, setState] = useState('')
   const [states, setStates] = useState([])
-  const [phone_no, setPhone] = useState('') 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [name, setName] = useState('')
-  const [sex, setSex] = useState('male')
-  const [marital_status, setMaritalStatus] = useState('single')
-  const [no_of_children, setChildrenNo] = useState("")
-  const [email, setEmail] = useState('')
-  const [type_of_membership, setMembershipType] = useState('student')
-  const [department, setDepartment] = useState('')
-  const [level, setLevel] = useState('')
-  const [permanent_address, setPermanentAddress] = useState('')
-  const [contact_address, setContactAddress] = useState('')
-  const [residential_address, setResidentialAddress] = useState('')
-  const [next_of_kin_name, setNextOfKinName] = useState('')
-  const [next_of_kin_phone_no, setNextOfKinPhoneNo] = useState('')
-  const [next_of_kin_address, setNextOfKinAddress] = useState('')
-  const [born_again, setBornAgain] = useState('yes')
-  const [baptized, setBaptized] = useState('yes')
-  const [baptism_method, setBaptismMethod] = useState('immersion')
-  const [holy_ghost_baptism, setHolyGhostBaptism] = useState('yes')
-  const [speaking_in_tongues, setSpeakingInTongues] = useState('yes')
-  const [service_unit, setServiceUnit] = useState('')
-  const [content, setContent] = useState('')
-  const [photo, setPhoto] = useState('')
+  const [phone, setPhone] = useState('')
+  const [file, setFile] = useState(null)
   const fileTypes = ['JPEG', 'PNG', 'GIF']
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
   const handleUploadFileChange = file => {
-    setPhoto(file)
+    setFile(file)
   }
 
   const filterCountries = Country.getAllCountries()
+
+  const handleDateChange = () => {}
+
   const handleCountryInput = code => {
     try {
       setCountryCode(code)
       const filterCountry = filterCountries.find(c => c.isoCode === code)
       setCountry(filterCountry.name)
-      const _states = State.getAllStates()
-      let filterStates = _states.filter(s => s.countryCode === code)
-      if (code === 'GB') {
-        const _allowedStates = [
-          'England',
-          'Wales',
-          'Scotland',
-          'Northern Ireland'
-        ]
-        filterStates = filterStates.filter(s => _allowedStates.includes(s.name))
-      }
-      filterStates = filterStates.sort(
-        (a, b) => a.name.toLowerCase() - b.name.toLowerCase()
-      )
-      setStates(filterStates)
-      setCities([])
+      console.log(filterCountry.name)
     } catch (error) {}
   }
-  
 
   const handleStateInput = code => {
     const _states = State.getAllStates()
@@ -92,261 +53,8 @@ function Membership () {
     setCity(e.target.value)
   }
 
-  const handlePhoneChange = e => {
-    setPhone(e)
-  }
-  
-  const handleNextOfKinPhoneChange = e => {
-    setNextOfKinPhoneNo(e)
-  }
-
-const clearInput = () => {
-    setLastName('')
-    setPhone('')
-    setMaritalStatus('')
-    setLevel('')
-    setSex('')
-    setDepartment('')
-    setBaptismMethod('')
-    setResidentialAddress('')
-    setBaptized('')
-    setHolyGhostBaptism('')
-    setDepartment('')
-    setFirstName('')
-    setChildrenNo('')
-  }
-
-   const handleSubmit = async e => {
-    e.preventDefault()
-    try {
-      if (firstName.trim() === '' || lastName.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your full name',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (sex.trim() === ''){
-        return Swal.fire({
-          text: 'Please select your Gender',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (marital_status.trim() === ''){
-        return Swal.fire({
-          text: 'Please select your Marital Status',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (no_of_children.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your level',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (date_of_birth.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your date of birth',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (!validateEmail(email.trim())){
-        return Swal.fire({
-          text: 'Please enter your room number',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (phone_no.trim() === ''){
-        return Swal.fire({
-          text: 'Please enter your phone number',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (type_of_membership.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your prayer point',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-      
-      if (department.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your department',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (level.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your level',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-
-      if (permanent_address.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your prayer point',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (contact_address.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your prayer point',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (residential_address.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your prayer point',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      if (next_of_kin_name.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your next of kin name',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-       if (next_of_kin_phone_no.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your next of kin phone number',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-       if (next_of_kin_address.trim() === '') {
-        return Swal.fire({
-          text: 'Please enter your next of kin address',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-       if (born_again.trim() === '') {
-        return Swal.fire({
-          text: 'Please select your baptism status',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-       if (baptized.trim() === '') {
-        return Swal.fire({
-          text: 'Please select an option if you were baptized by water',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-       if (baptism_method.trim() === '') {
-        return Swal.fire({
-          text: 'Please select your baptism method',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-       if (holy_ghost_baptism.trim() === '') {
-        return Swal.fire({
-          text: `Please select if you've been Baptized`,
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-       if (speaking_in_tongues.trim() === '') {
-        return Swal.fire({
-          text: 'Please select if you believe in speaking in tongues',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-
-      // if (service_unit.trim() === '') {
-      //   return Swal.fire({
-      //     text: 'Please select your service unit',
-      //     toast: true,
-      //     confirmButtonColor: '#0000FF'
-      //   })
-      // }
-
-      if (content.trim() === '') {
-        return Swal.fire({
-          text: 'Please specify your comments',
-          toast: true,
-          confirmButtonColor: '#0000FF'
-        })
-      }
-      
-      const fullName = `${firstName} ` + `${lastName}`
-      setName(fullName)
-      const body = {
-        name,
-        sex,
-        marital_status,
-        no_of_children,
-        date_of_birth,
-        country,
-        state,
-        city,
-        email,
-        phone_no,
-        type_of_membership,
-        department,
-        level,
-        permanent_address,
-        contact_address,
-        residential_address,
-        next_of_kin_name,
-        next_of_kin_phone_no,
-        next_of_kin_address,
-        born_again,
-        baptized,
-        baptism_method,
-        holy_ghost_baptism,
-        speaking_in_tongues,
-        service_unit:"test",
-        content,
-        photo: "test.jpg"
-      }
-      await Axios.post('/memberships', body)
-      clearInput()
-      Swal.fire({
-        text: 'Membership data sent successfully',
-        icon: 'success',
-        animation: true,
-        confirmButtonColor: '#0000FF'
-      })
-      window.scrollTo(0, 0);
-    } catch (error) {
-      console.log(error)
-    }
+  const handlePhoneChange = newPhone => {
+    setPhone(newPhone)
   }
 
   return (
@@ -398,8 +106,6 @@ const clearInput = () => {
                 name='firstName'
                 className=''
                 margin='normal'
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
               />
             </Grid>
             <Grid item>
@@ -411,8 +117,6 @@ const clearInput = () => {
                 name='surname'
                 className='mb-3'
                 margin='normal'
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -420,62 +124,56 @@ const clearInput = () => {
           <label>Sex:</label>
           <Grid container direction='row' spacing={2}>
             <Grid item>
-              <Checkbox
-                checked={sex === 'male'}
-                onChange={() => setSex('male')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='male' />
                 <label class='form-check-label' for='male'>
                   Male
                 </label>
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox
-              checked={sex === 'female'}
-              onChange={() => setSex('female')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='female' />
                 <label class='form-check-label' for='female'>
                   Female
                 </label>
+              </div>
             </Grid>
           </Grid>
 
           <label className='mt-3'>Marital Status:</label>
           <Grid container direction='row' spacing={4}>
             <Grid item>
-              <Checkbox 
-              checked={marital_status === 'single'}
-              onChange={() => setMaritalStatus('single')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='single' />
                 <label class='form-check-label' for='single'>
                   Single
                 </label>
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox 
-                checked={marital_status === 'married'}
-                onChange={() => setMaritalStatus('married')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='married' />
                 <label class='form-check-label' for='married'>
                   Married
                 </label>
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={marital_status === 'widowed'}
-                onChange={() => setMaritalStatus('widowed')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='widowed' />
                 <label class='form-check-label' for='widowed'>
                   Widowed
                 </label>
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={marital_status === 'divorced'}
-                onChange={() => setMaritalStatus('divorced')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='divorced' />
                 <label class='form-check-label' for='divorced'>
                   Divorced
                 </label>
+              </div>
             </Grid>
           </Grid>
 
@@ -490,8 +188,6 @@ const clearInput = () => {
                 className='bordered form-control '
                 inputProps={{ maxLength: 12 }}
                 placeholder='No. of Children'
-                value={no_of_children}
-                onChange={(e) => setChildrenNo(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -500,7 +196,7 @@ const clearInput = () => {
           <Grid container direction='row'>
             <Grid>
               <Space direction='vertical'>
-                <DatePicker onChange={(e) => setDate(moment(e).format('DD-MM-YYYY'))} />
+                <DatePicker onChange={handleDateChange} />
               </Space>
             </Grid>
           </Grid>
@@ -524,7 +220,6 @@ const clearInput = () => {
 
           <Grid container direction='row' spacing={2}>
             <Grid item>
-              
               <select
                 className='form-control mt-3 required'
                 onChange={e => handleStateInput(e.target.value)}
@@ -559,14 +254,12 @@ const clearInput = () => {
                 name='email'
                 className='bordered form-control'
                 placeholder='Email Address'
-                value={email}
-                onChange={e => setEmail(e.target.value)}
               />
             </Grid>
           </Grid>
           <label className='mt-3'>Phone Number:</label>
           <MuiTelInput
-            value={phone_no}
+            value={phone}
             onChange={handlePhoneChange}
             className='form-control mt-3'
             placeholder='Phone Number (+234)'
@@ -575,32 +268,29 @@ const clearInput = () => {
           <label className='mt-4'>Type of Membership:</label>
           <Grid container direction='row' spacing={3}>
             <Grid item>
-              <Checkbox
-                checked={type_of_membership === 'student'}
-                onChange={() => setMembershipType('student')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='student' />
                 <label class='form-check-label' for='student'>
                   Student
                 </label>
+              </div>
             </Grid>
             <Grid item>
-                <Checkbox
-                checked={type_of_membership === 'graduate'}
-                onChange={() => setMembershipType('graduate')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='staff' />
                 <label class='form-check-label' for='staff'>
                   Staff
                 </label>
+              </div>
             </Grid>
 
             <Grid item>
-                <Checkbox
-                checked={type_of_membership === 'parent'}
-                onChange={() => setMembershipType('parent')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input class='form-check-input' type='checkbox' id='other' />
                 <label class='form-check-label' for='other'>
                   Other
                 </label>
+              </div>
             </Grid>
           </Grid>
 
@@ -614,8 +304,6 @@ const clearInput = () => {
                 name='department'
                 className='bordered form-control'
                 placeholder='Department'
-                value={department}
-                onChange={e => setDepartment(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -630,8 +318,6 @@ const clearInput = () => {
                 name='level'
                 className='bordered form-control'
                 placeholder='Level'
-                value={level}
-                onChange={e => setLevel(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -647,8 +333,6 @@ const clearInput = () => {
                 className='bordered form-control'
                 placeholder='Permanent Address'
                 style={{ height: '100px', width: '100%' }}
-                value={permanent_address}
-                onChange={e => setPermanentAddress(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -664,8 +348,6 @@ const clearInput = () => {
                 className='bordered form-control'
                 placeholder='Contact Address'
                 style={{ height: '100px', width: '100%' }}
-                value={contact_address}
-                onChange={e => setContactAddress(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -681,8 +363,6 @@ const clearInput = () => {
                 className='bordered form-control'
                 placeholder='Residential Address'
                 style={{ height: '100px', width: '100%' }}
-                value={residential_address}
-                onChange={e => setResidentialAddress(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -697,8 +377,6 @@ const clearInput = () => {
                 name='nextOfKin'
                 className='bordered form-control'
                 placeholder='Next of Kin'
-                value={next_of_kin_name}
-                onChange={e => setNextOfKinName(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -706,11 +384,14 @@ const clearInput = () => {
           <label className='mt-4'>Next of Kin Phone No.:</label>
           <Grid container direction='row'>
             <Grid>
-             <MuiTelInput
-                className='form-control mt-3'
-                placeholder='Phone Number (+234)'
-                value={next_of_kin_phone_no}
-                onChange={handleNextOfKinPhoneChange}
+              <Input
+                type='number'
+                label='Next of Kin Phone No.'
+                id='nextOfKinPhoneNo'
+                name='nextOfKinPhoneNo'
+                className='bordered form-control '
+                inputProps={{ maxLength: 12 }}
+                placeholder='Next of Kin Phone No.'
               />
             </Grid>
           </Grid>
@@ -725,8 +406,6 @@ const clearInput = () => {
                 className='bordered form-control'
                 placeholder='Next of Kin Address'
                 style={{ height: '100px', width: '100%' }}
-                value={next_of_kin_address}
-                onChange={e => setNextOfKinAddress(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -734,89 +413,112 @@ const clearInput = () => {
           <label className='mt-4'>Are you Born Again:</label>
           <Grid container direction='row' spacing={2}>
             <Grid item>
-              <Checkbox
-                checked={born_again === 'yes'}
-                onChange={() => setBornAgain('yes')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='yesBornAgain'
+                />
                 <label class='form-check-label' for='yesBornAgain'>
                   Yes
                 </label>
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={born_again === 'no'}
-                onChange={() => setBornAgain('no')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='noBornAgain'
+                />
                 <label class='form-check-label' for='noBornAgain'>
                   No
                 </label>
+              </div>
             </Grid>
           </Grid>
 
           <label className='mt-4'>Have you been Baptized by water?:</label>
           <Grid container direction='row' spacing={2}>
             <Grid item>
-              <Checkbox
-                checked={baptized === 'yes'}
-                onChange={() => setBaptized('yes')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='yesBaptized'
+                />
                 <label class='form-check-label' for='yesBaptized'>
                   Yes
                 </label>
-
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={baptized === 'no'}
-                onChange={() => setBaptized('no')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='noBaptized'
+                />
                 <label class='form-check-label' for='noBaptized'>
                   No
                 </label>
+              </div>
             </Grid>
           </Grid>
 
           <label className='mt-4'>Method of Water Baptism?:</label>
           <Grid container direction='row' spacing={2}>
             <Grid item>
-              <Checkbox
-                checked={baptism_method === 'immersion'}
-                onChange={() => setBaptismMethod('immersion')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='yesWaterBaptism'
+                />
                 <label class='form-check-label' for='yesWaterBaptism'>
                   Immersion
                 </label>
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox 
-                checked={baptism_method === 'sprinkling'}
-                onChange={() => setBaptismMethod('sprinkling')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='noWaterBaptism'
+                />
                 <label class='form-check-label' for='noWaterBaptism'>
                   Sprinkling
                 </label>
+              </div>
             </Grid>
           </Grid>
 
           <label className='mt-4'>Have you had Holy Ghost Baptism?:</label>
           <Grid container direction='row' spacing={2}>
             <Grid item>
-              <Checkbox
-                checked={holy_ghost_baptism === 'yes'}
-                onChange={() => setHolyGhostBaptism('yes')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='yesHolyGhostBaptism'
+                />
                 <label class='form-check-label' for='yesHolyGhostBaptism'>
                   Yes
                 </label>
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={holy_ghost_baptism === 'no'}
-                onChange={() => setHolyGhostBaptism('no')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='noHolyGhostBaptism'
+                />
                 <label class='form-check-label' for='noHolyGhostBaptism'>
                   No
                 </label>
+              </div>
             </Grid>
           </Grid>
 
@@ -825,22 +527,28 @@ const clearInput = () => {
           </label>
           <Grid container direction='row' spacing={2}>
             <Grid item>
-                  <Checkbox
-                checked={speaking_in_tongues === 'yes'}
-                onChange={() => setSpeakingInTongues('yes')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='yesSpeakinInTongues'
+                />
                 <label class='form-check-label' for='yesSpeakinInTongues'>
                   Yes
                 </label>
+              </div>
             </Grid>
             <Grid item>
-              <Checkbox
-                checked={speaking_in_tongues === 'no'}
-                onChange={() => setSpeakingInTongues('no')}
-              />
+              <div class='form-check form-check-inline form-switch mt-2'>
+                <input
+                  class='form-check-input'
+                  type='checkbox'
+                  id='noSpeakinInTongues'
+                />
                 <label class='form-check-label' for='noSpeakinInTongues'>
                   No
                 </label>
+              </div>
             </Grid>
           </Grid>
 
@@ -850,7 +558,7 @@ const clearInput = () => {
           <Grid container direction='row'>
             <Grid>
               <select className='form-control required'>
-                <option value=''>Service Unit</option>
+                <option value='None'>Service Unit</option>
               </select>
             </Grid>
           </Grid>
@@ -866,8 +574,6 @@ const clearInput = () => {
                 className='bordered form-control'
                 placeholder='Comments'
                 style={{ height: '100px', width: '100%' }}
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -876,7 +582,6 @@ const clearInput = () => {
             size='small'
             color='warning'
             className='mt-4 mb-4'
-            onClick={handleSubmit}
           >
             Submit
           </Button>

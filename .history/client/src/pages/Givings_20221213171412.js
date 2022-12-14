@@ -44,7 +44,6 @@ function Givings () {
     setAmount('')
     setGateway('')
     setDetails('')
-    setEmail('')
   }
 
   const handleSubmit = async e => {
@@ -77,7 +76,7 @@ function Givings () {
           text: 'Please enter your desired amount',
           toast: true,
           confirmButtonColor: '#0000FF'
-        })  
+        })
       }
       if (isError) return false
       const body = {
@@ -97,7 +96,6 @@ function Givings () {
         animation: true,
         confirmButtonColor: '#0000FF'
       })
-      window.scrollTo(0, 0)
     } catch (error) {
       // setMessage(error.message)
     }
@@ -163,7 +161,7 @@ function Givings () {
             label='Amount (NGN)'
             name='amount'
             margin='normal'
-            onChange={e => setAmount(e.target.value)}
+            onChange={e => handleAmountChange(e)}
             defaultValue={amount}
             className='bordered form-control mt-4'
             inputProps={{ maxLength: 12 }}

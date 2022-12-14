@@ -92,12 +92,8 @@ function Membership () {
     setCity(e.target.value)
   }
 
-  const handlePhoneChange = e => {
-    setPhone(e)
-  }
-  
-  const handleNextOfKinPhoneChange = e => {
-    setNextOfKinPhoneNo(e)
+  const handlePhoneChange = newPhone => {
+    setPhone(newPhone)
   }
 
 const clearInput = () => {
@@ -288,13 +284,13 @@ const clearInput = () => {
         })
       }
 
-      // if (service_unit.trim() === '') {
-      //   return Swal.fire({
-      //     text: 'Please select your service unit',
-      //     toast: true,
-      //     confirmButtonColor: '#0000FF'
-      //   })
-      // }
+      if (service_unit.trim() === '') {
+        return Swal.fire({
+          text: 'Please select your service unit',
+          toast: true,
+          confirmButtonColor: '#0000FF'
+        })
+      }
 
       if (content.trim() === '') {
         return Swal.fire({
@@ -331,14 +327,13 @@ const clearInput = () => {
         baptism_method,
         holy_ghost_baptism,
         speaking_in_tongues,
-        service_unit:"test",
         content,
         photo: "test.jpg"
       }
-      await Axios.post('/memberships', body)
+      await Axios.post('/response', body)
       clearInput()
       Swal.fire({
-        text: 'Membership data sent successfully',
+        text: 'Response data sent successfully',
         icon: 'success',
         animation: true,
         confirmButtonColor: '#0000FF'
@@ -706,11 +701,16 @@ const clearInput = () => {
           <label className='mt-4'>Next of Kin Phone No.:</label>
           <Grid container direction='row'>
             <Grid>
-             <MuiTelInput
-                className='form-control mt-3'
-                placeholder='Phone Number (+234)'
+              <Input
+                type='number'
+                label='Next of Kin Phone No.'
+                id='nextOfKinPhoneNo'
+                name='nextOfKinPhoneNo'
+                className='bordered form-control '
+                inputProps={{ maxLength: 12 }}
+                placeholder='Next of Kin Phone No.'
                 value={next_of_kin_phone_no}
-                onChange={handleNextOfKinPhoneChange}
+                onChange={e => setNextOfKinPhoneNo(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -876,7 +876,6 @@ const clearInput = () => {
             size='small'
             color='warning'
             className='mt-4 mb-4'
-            onClick={handleSubmit}
           >
             Submit
           </Button>

@@ -288,13 +288,13 @@ const clearInput = () => {
         })
       }
 
-      // if (service_unit.trim() === '') {
-      //   return Swal.fire({
-      //     text: 'Please select your service unit',
-      //     toast: true,
-      //     confirmButtonColor: '#0000FF'
-      //   })
-      // }
+      if (service_unit.trim() === '') {
+        return Swal.fire({
+          text: 'Please select your service unit',
+          toast: true,
+          confirmButtonColor: '#0000FF'
+        })
+      }
 
       if (content.trim() === '') {
         return Swal.fire({
@@ -331,7 +331,7 @@ const clearInput = () => {
         baptism_method,
         holy_ghost_baptism,
         speaking_in_tongues,
-        service_unit:"test",
+        service_unit,
         content,
         photo: "test.jpg"
       }

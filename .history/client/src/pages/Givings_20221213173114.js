@@ -44,7 +44,6 @@ function Givings () {
     setAmount('')
     setGateway('')
     setDetails('')
-    setEmail('')
   }
 
   const handleSubmit = async e => {
@@ -97,7 +96,6 @@ function Givings () {
         animation: true,
         confirmButtonColor: '#0000FF'
       })
-      window.scrollTo(0, 0)
     } catch (error) {
       // setMessage(error.message)
     }
