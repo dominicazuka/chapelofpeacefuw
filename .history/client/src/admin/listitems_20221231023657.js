@@ -22,19 +22,6 @@ import SpeakerNotesIcon from '@mui/icons-material/SpeakerNotes'
 import DynamicFormIcon from '@mui/icons-material/DynamicForm';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import MoreTimeIcon from '@mui/icons-material/MoreTime'
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
-import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
-import SwitchAccountIcon from '@mui/icons-material/SwitchAccount';
-import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
-import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
-import ViewCarouselIcon from '@mui/icons-material/ViewCarousel'
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { Link } from 'react-router-dom'
 
 export const mainListItems = (
@@ -115,12 +102,6 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary='Testimony' />
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <ManageAccountsIcon />
-      </ListItemIcon>
-      <ListItemText primary='Admin Users' />
-    </ListItemButton>
   </React.Fragment>
 )
 
@@ -137,81 +118,15 @@ export const secondaryListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <AutoStoriesIcon />
+        <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary='Bible Story' />
+      <ListItemText primary='Last quarter' />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <MoreTimeIcon />
+        <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary='Bible Study Schedule' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <ContactMailIcon />
-      </ListItemIcon>
-      <ListItemText primary='Contact Us Form' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <ConnectWithoutContactIcon />
-      </ListItemIcon>
-      <ListItemText primary='Meditation' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <SupervisedUserCircleIcon />
-      </ListItemIcon>
-      <ListItemText primary='Memberhips' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <SwitchAccountIcon />
-      </ListItemIcon>
-      <ListItemText primary='Members of Council' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <MeetingRoomIcon />
-      </ListItemIcon>
-      <ListItemText primary='Prayer Meeting' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <RequestQuoteIcon />
-      </ListItemIcon>
-      <ListItemText primary='Prayer Requests' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <HelpOutlineIcon />
-      </ListItemIcon>
-      <ListItemText primary='Response Form' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <MiscellaneousServicesIcon />
-      </ListItemIcon>
-      <ListItemText primary='Services' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <MiscellaneousServicesIcon />
-      </ListItemIcon>
-      <ListItemText primary='Services' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <ViewCarouselIcon />
-      </ListItemIcon>
-      <ListItemText primary='Sliders' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <ApartmentIcon />
-      </ListItemIcon>
-      <ListItemText primary='Units' />
+      <ListItemText primary='Year-end sale' />
     </ListItemButton>
   </React.Fragment>
 )

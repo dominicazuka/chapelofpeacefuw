@@ -21,7 +21,7 @@ const BlogOverview = () => {
         columns={12}
         justifyContent='center'
         alignItems='center'
-        style={{ padding: '20px' }}
+        // style={{ padding: '50px' }}
       >
         {/**LHS**/}
 

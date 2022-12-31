@@ -23,8 +23,6 @@ import Deposits from './components/TotalDonations'
 import Donations from './reports/Donations'
 import BlogOverview from './reports/BlogOverview'
 import UsersOverview from './reports/UsersOverview'
-import Sidebar from './components/Sidebar'
-import AlumniMembershipReport from './reports/AlumniMembershipReport'
 
 function Copyright (props) {
   return (
@@ -100,7 +98,7 @@ function DashboardContent () {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', marginTop: '100px' }}>
         <Sidebar/>
         <Box
           component='main'
@@ -115,7 +113,7 @@ function DashboardContent () {
           }}
         >
           <Toolbar />
-          <Container maxWidth='lg' sx={{ mt: 20, mb: 4 }}>
+          <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
@@ -166,16 +164,6 @@ function DashboardContent () {
                   <UsersOverview />
                 </Paper>
               </Grid>
-
-              {/* Alumni Membership Overview */}
-
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <AlumniMembershipReport />
-                </Paper>
-              </Grid>
-
-
             </Grid>
             {/* <Copyright sx={{ pt: 4 }} /> */}
           </Container>
