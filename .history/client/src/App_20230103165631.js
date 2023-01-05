@@ -22,7 +22,6 @@ const ChildrenUnit = lazy(() => import('./pages/ChildrenUnit'))
 const Alumni = lazy(() => import('./pages/Alumni'))
 const AlumniMembership = lazy(() => import('./pages/AlumniMembership'))
 const Login = lazy(() => import('./pages/Login'))
-const SignUp = lazy(() => import('./pages/SignUp'))
 const Dashboard = lazy(() => import('./admin/Dashboard'))
 const AlumniMembershipAdmin = lazy(() =>
   import('./admin/pages/AlumniMemberships')
@@ -73,7 +72,6 @@ function App () {
               <Route path='/alumni' element={<Alumni />} />
               <Route path='/alumni-membership' element={<AlumniMembership />} />
               <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<SignUp />} />
               <Route path='/cp-admin' element={<Dashboard />} />
               <Route
                 path='/alumni-membership-admin'

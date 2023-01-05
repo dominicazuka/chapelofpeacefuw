@@ -13,7 +13,7 @@ import Badge from '@mui/material/Badge'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import NotificationsIcon from '@mui/icons-material/Notifications'
-import { mainMenuItems, secondaryMenuItems } from './Menu'
+import { mainListItems, secondaryListItems } from './Menu'
 
 const drawerWidth = 240
 
@@ -122,9 +122,9 @@ function SidebarContent () {
           </Toolbar>
           <Divider />
           <List component='nav'>
-            {mainMenuItems}
+            {mainListItems}
             <Divider sx={{ my: 1 }} />
-            {secondaryMenuItems}
+            {secondaryListItems}
           </List>
         </Drawer>
       </Box>

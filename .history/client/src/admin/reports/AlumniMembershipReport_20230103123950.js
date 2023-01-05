@@ -199,10 +199,10 @@ export default function AlumniMembershipReport () {
                 key={row.name}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell>{i + 1}</TableCell>
                 <TableCell component='th' scope='row'>
                   {row.name}
                 </TableCell>
+                <TableCell>{i + 1}</TableCell>
                 <TableCell align='right'>{row.name}</TableCell>
                 <TableCell align='right'>{row.sex}</TableCell>
                 <TableCell align='right'>{row.marital_status}</TableCell>
