@@ -22,7 +22,7 @@ import CreateIcon from '@mui/icons-material/Create'
 import Add from '@mui/icons-material/Add'
 import { styled } from '@mui/material/styles'
 
-const BibleStudy = () => {
+const Posts = () => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -31,10 +31,12 @@ const BibleStudy = () => {
     color: theme.palette.text.secondary
   }))
 
-  function createData (title, description, photo, action) {
+  function createData (title, name, description, content, photo, action) {
     return {
       title,
+      name,
       description,
+      content,
       photo,
       action
     }
@@ -43,25 +45,9 @@ const BibleStudy = () => {
   const rows = [
     createData(
       'Title Test',
+      'Name Test',
       'Description Test',
-      <Avatar
-        align='center'
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
-      <Stack align='center'>
-        <IconButton aria-label='delete' size='small'>
-          <DeleteIcon fontSize='inherit' color='error' />
-        </IconButton>
-        <IconButton aria-label='create' size='small'>
-          <CreateIcon fontSize='inherit' />
-        </IconButton>
-      </Stack>
-    ),
-    createData(
-      'Title Test',
-      'Description Test',
+      'Content Test',
       <Avatar
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
@@ -78,7 +64,9 @@ const BibleStudy = () => {
     ),
     createData(
       'Title Test',
+      'Name Test',
       'Description Test',
+      'Content Test',
       <Avatar
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
@@ -95,7 +83,9 @@ const BibleStudy = () => {
     ),
     createData(
       'Title Test',
+      'Name Test',
       'Description Test',
+      'Content Test',
       <Avatar
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
@@ -112,7 +102,47 @@ const BibleStudy = () => {
     ),
     createData(
       'Title Test',
+      'Name Test',
       'Description Test',
+      'Content Test',
+      <Avatar
+        src={
+          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
+        }
+      />,
+      <Stack align='center'>
+        <IconButton aria-label='delete' size='small'>
+          <DeleteIcon fontSize='inherit' color='error' />
+        </IconButton>
+        <IconButton aria-label='create' size='small'>
+          <CreateIcon fontSize='inherit' />
+        </IconButton>
+      </Stack>
+    ),
+    createData(
+      'Title Test',
+      'Name Test',
+      'Description Test',
+      'Content Test',
+      <Avatar
+        src={
+          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
+        }
+      />,
+      <Stack align='center'>
+        <IconButton aria-label='delete' size='small'>
+          <DeleteIcon fontSize='inherit' color='error' />
+        </IconButton>
+        <IconButton aria-label='create' size='small'>
+          <CreateIcon fontSize='inherit' />
+        </IconButton>
+      </Stack>
+    ),
+    createData(
+      'Title Test',
+      'Name Test',
+      'Description Test',
+      'Content Test',
       <Avatar
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
@@ -148,13 +178,13 @@ const BibleStudy = () => {
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Title>Bible Study</Title>
+                  <Title>All Posts</Title>
 
                   <Stack spacing={2}>
                     <Item></Item>
                     <Item>
                       <Button variant='contained' startIcon={<Add />}>
-                        Add Bible Study
+                        Add Post
                       </Button>
                     </Item>
                   </Stack>
@@ -164,15 +194,19 @@ const BibleStudy = () => {
                         <TableRow>
                           <TableCell>S/N</TableCell>
                           <TableCell align='center'>Title</TableCell>
+                          <TableCell align='center'>Name</TableCell>
+
                           <TableCell align='center'>Description</TableCell>
+                          <TableCell align='center'>Content</TableCell>
                           <TableCell align='center'>Photo</TableCell>
+
                           <TableCell align='center'>Action</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {rows.map((row, i) => (
                           <TableRow
-                            key={row.url}
+                            key={row.title}
                             sx={{
                               '&:last-child td, &:last-child th': { border: 0 }
                             }}
@@ -181,10 +215,14 @@ const BibleStudy = () => {
                               {i + 1}
                             </TableCell>
                             <TableCell align='center'>{row.title}</TableCell>
+                            <TableCell align='center'>{row.name}</TableCell>
+
                             <TableCell align='center'>
                               {row.description}
                             </TableCell>
+                            <TableCell align='center'>{row.content}</TableCell>
                             <TableCell align='center'>{row.photo}</TableCell>
+
                             <TableCell align='center'>{row.action}</TableCell>
                           </TableRow>
                         ))}
@@ -201,4 +239,4 @@ const BibleStudy = () => {
   )
 }
 
-export default BibleStudy
+export default Posts

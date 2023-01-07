@@ -22,7 +22,7 @@ import CreateIcon from '@mui/icons-material/Create'
 import Add from '@mui/icons-material/Add'
 import { styled } from '@mui/material/styles'
 
-const BibleStudy = () => {
+const MemoryVerse = () => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -31,11 +31,11 @@ const BibleStudy = () => {
     color: theme.palette.text.secondary
   }))
 
-  function createData (title, description, photo, action) {
+  function createData (title, description, url, action) {
     return {
       title,
       description,
-      photo,
+      url,
       action
     }
   }
@@ -44,12 +44,7 @@ const BibleStudy = () => {
     createData(
       'Title Test',
       'Description Test',
-      <Avatar
-        align='center'
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+      'https://test.com',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -62,11 +57,7 @@ const BibleStudy = () => {
     createData(
       'Title Test',
       'Description Test',
-      <Avatar
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+      'https://test.com',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -79,11 +70,7 @@ const BibleStudy = () => {
     createData(
       'Title Test',
       'Description Test',
-      <Avatar
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+      'https://test.com',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -96,11 +83,7 @@ const BibleStudy = () => {
     createData(
       'Title Test',
       'Description Test',
-      <Avatar
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+      'https://test.com',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -113,11 +96,20 @@ const BibleStudy = () => {
     createData(
       'Title Test',
       'Description Test',
-      <Avatar
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+      'https://test.com',
+      <Stack align='center'>
+        <IconButton aria-label='delete' size='small'>
+          <DeleteIcon fontSize='inherit' color='error' />
+        </IconButton>
+        <IconButton aria-label='create' size='small'>
+          <CreateIcon fontSize='inherit' />
+        </IconButton>
+      </Stack>
+    ),
+    createData(
+      'Title Test',
+      'Description Test',
+      'https://test.com',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -148,13 +140,13 @@ const BibleStudy = () => {
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Title>Bible Study</Title>
+                  <Title>Memory Verse</Title>
 
                   <Stack spacing={2}>
                     <Item></Item>
                     <Item>
                       <Button variant='contained' startIcon={<Add />}>
-                        Add Bible Study
+                        Add Memory Verse
                       </Button>
                     </Item>
                   </Stack>
@@ -165,14 +157,14 @@ const BibleStudy = () => {
                           <TableCell>S/N</TableCell>
                           <TableCell align='center'>Title</TableCell>
                           <TableCell align='center'>Description</TableCell>
-                          <TableCell align='center'>Photo</TableCell>
+                          <TableCell align='center'>url</TableCell>
                           <TableCell align='center'>Action</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {rows.map((row, i) => (
                           <TableRow
-                            key={row.url}
+                            key={row.title}
                             sx={{
                               '&:last-child td, &:last-child th': { border: 0 }
                             }}
@@ -184,7 +176,7 @@ const BibleStudy = () => {
                             <TableCell align='center'>
                               {row.description}
                             </TableCell>
-                            <TableCell align='center'>{row.photo}</TableCell>
+                            <TableCell align='center'>{row.url}</TableCell>
                             <TableCell align='center'>{row.action}</TableCell>
                           </TableRow>
                         ))}
@@ -201,4 +193,4 @@ const BibleStudy = () => {
   )
 }
 
-export default BibleStudy
+export default MemoryVerse

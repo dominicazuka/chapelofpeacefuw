@@ -22,7 +22,7 @@ import CreateIcon from '@mui/icons-material/Create'
 import Add from '@mui/icons-material/Add'
 import { styled } from '@mui/material/styles'
 
-const BibleStudy = () => {
+const PrayerRequest = () => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -31,25 +31,22 @@ const BibleStudy = () => {
     color: theme.palette.text.secondary
   }))
 
-  function createData (title, description, photo, action) {
+  function createData (name, phone_no, email, content, action) {
     return {
-      title,
-      description,
-      photo,
+      name,
+      phone_no,
+      email,
+      content,
       action
     }
   }
 
   const rows = [
     createData(
-      'Title Test',
-      'Description Test',
-      <Avatar
-        align='center'
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+      'Test Name',
+      '08032146321',
+      'test@gmail.com',
+      'test content',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -60,13 +57,10 @@ const BibleStudy = () => {
       </Stack>
     ),
     createData(
-      'Title Test',
-      'Description Test',
-      <Avatar
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+      'Test Name',
+      '08032146321',
+      'test@gmail.com',
+      'test content',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -75,15 +69,11 @@ const BibleStudy = () => {
           <CreateIcon fontSize='inherit' />
         </IconButton>
       </Stack>
-    ),
-    createData(
-      'Title Test',
-      'Description Test',
-      <Avatar
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+    ),createData(
+      'Test Name',
+      '08032146321',
+      'test@gmail.com',
+      'test content',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -92,32 +82,11 @@ const BibleStudy = () => {
           <CreateIcon fontSize='inherit' />
         </IconButton>
       </Stack>
-    ),
-    createData(
-      'Title Test',
-      'Description Test',
-      <Avatar
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
-      <Stack align='center'>
-        <IconButton aria-label='delete' size='small'>
-          <DeleteIcon fontSize='inherit' color='error' />
-        </IconButton>
-        <IconButton aria-label='create' size='small'>
-          <CreateIcon fontSize='inherit' />
-        </IconButton>
-      </Stack>
-    ),
-    createData(
-      'Title Test',
-      'Description Test',
-      <Avatar
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
+    ),createData(
+      'Test Name',
+      '08032146321',
+      'test@gmail.com',
+      'test content',
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
           <DeleteIcon fontSize='inherit' color='error' />
@@ -148,13 +117,13 @@ const BibleStudy = () => {
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Title>Bible Study</Title>
+                  <Title>All Prayer Requests</Title>
 
                   <Stack spacing={2}>
                     <Item></Item>
                     <Item>
                       <Button variant='contained' startIcon={<Add />}>
-                        Add Bible Study
+                        Add Prayer Requests
                       </Button>
                     </Item>
                   </Stack>
@@ -163,16 +132,17 @@ const BibleStudy = () => {
                       <TableHead>
                         <TableRow>
                           <TableCell>S/N</TableCell>
-                          <TableCell align='center'>Title</TableCell>
-                          <TableCell align='center'>Description</TableCell>
-                          <TableCell align='center'>Photo</TableCell>
+                          <TableCell align='center'>Name</TableCell>
+                          <TableCell align='center'>Phone Number</TableCell>
+                          <TableCell align='center'>Email</TableCell>
+                          <TableCell align='center'>Content</TableCell>
                           <TableCell align='center'>Action</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {rows.map((row, i) => (
                           <TableRow
-                            key={row.url}
+                            key={row.name}
                             sx={{
                               '&:last-child td, &:last-child th': { border: 0 }
                             }}
@@ -180,11 +150,10 @@ const BibleStudy = () => {
                             <TableCell sx={{ width: '10px' }}>
                               {i + 1}
                             </TableCell>
-                            <TableCell align='center'>{row.title}</TableCell>
-                            <TableCell align='center'>
-                              {row.description}
-                            </TableCell>
-                            <TableCell align='center'>{row.photo}</TableCell>
+                            <TableCell align='center'>{row.name}</TableCell>
+                            <TableCell align='center'>{row.phone_no}</TableCell>
+                            <TableCell align='center'>{row.email}</TableCell>
+                            <TableCell align='center'>{row.content}</TableCell>
                             <TableCell align='center'>{row.action}</TableCell>
                           </TableRow>
                         ))}
@@ -201,4 +170,4 @@ const BibleStudy = () => {
   )
 }
 
-export default BibleStudy
+export default PrayerRequest

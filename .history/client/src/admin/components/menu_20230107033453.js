@@ -268,17 +268,12 @@ export const secondaryMenuItems = (
         <ListItemText primary='Prayer Meeting' />
       </ListItemButton>
     </Link>
-    <Link
-      to='/prayer-request-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <RequestQuoteIcon />
-        </ListItemIcon>
-        <ListItemText primary='Prayer Requests' />
-      </ListItemButton>
-    </Link>
+    <ListItemButton>
+      <ListItemIcon>
+        <RequestQuoteIcon />
+      </ListItemIcon>
+      <ListItemText primary='Prayer Requests' />
+    </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <HelpOutlineIcon />

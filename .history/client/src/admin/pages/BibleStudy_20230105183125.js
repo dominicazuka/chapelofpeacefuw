@@ -49,6 +49,7 @@ const BibleStudy = () => {
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
         }
+        sx={{ justifyContent: "center", display: "flex" }}
       />,
       <Stack align='center'>
         <IconButton aria-label='delete' size='small'>
@@ -172,7 +173,7 @@ const BibleStudy = () => {
                       <TableBody>
                         {rows.map((row, i) => (
                           <TableRow
-                            key={row.url}
+                            key={row.name}
                             sx={{
                               '&:last-child td, &:last-child th': { border: 0 }
                             }}

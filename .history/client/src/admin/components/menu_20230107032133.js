@@ -138,14 +138,17 @@ export const mainMenuItems = (
         <ListItemText primary='Partners' />
       </ListItemButton>
     </Link>
-    <Link to='/posts-admin' style={{ textDecoration: 'none', color: 'black' }}>
-      <ListItemButton>
-        <ListItemIcon>
-          <PostAddIcon />
-        </ListItemIcon>
-        <ListItemText primary='Posts' />
+    <Link
+      to='/posts-admin'
+      style={{ textDecoration: 'none', color: 'black' }}
+    >
+    <ListItemButton>
+      <ListItemIcon>
+        <PostAddIcon />
+      </ListItemIcon>
+      <ListItemText primary='Posts' />
       </ListItemButton>
-    </Link>
+      </Link>
     <ListItemButton>
       <ListItemIcon>
         <DynamicFormIcon />
@@ -257,28 +260,19 @@ export const secondaryMenuItems = (
         <ListItemText primary='Members of Council' />
       </ListItemButton>
     </Link>
-    <Link
-      to='/prayer-meeting-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <MeetingRoomIcon />
-        </ListItemIcon>
-        <ListItemText primary='Prayer Meeting' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/prayer-request-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <RequestQuoteIcon />
-        </ListItemIcon>
-        <ListItemText primary='Prayer Requests' />
-      </ListItemButton>
-    </Link>
+
+    <ListItemButton>
+      <ListItemIcon>
+        <MeetingRoomIcon />
+      </ListItemIcon>
+      <ListItemText primary='Prayer Meeting' />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <RequestQuoteIcon />
+      </ListItemIcon>
+      <ListItemText primary='Prayer Requests' />
+    </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <HelpOutlineIcon />

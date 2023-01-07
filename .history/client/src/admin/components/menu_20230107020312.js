@@ -39,113 +39,90 @@ import { Link } from 'react-router-dom'
 
 export const mainMenuItems = (
   <React.Fragment>
-    <Link to='/cp-admin' style={{ textDecoration: 'none', color: 'black' }}>
-      <ListItemButton>
-        <ListItemIcon>
-          <DashboardIcon />
-        </ListItemIcon>
-
+    <ListItemButton>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <Link to='/cp-admin' style={{ textDecoration: 'none', color: 'black' }}>
         <ListItemText primary='Dashboard' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/alumni-membership-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <SchoolIcon />
-        </ListItemIcon>
-
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <SchoolIcon />
+      </ListItemIcon>
+      <Link
+        to='/alumni-membership-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Alumni Memberships' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/bible-study-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <LocalLibraryIcon />
-        </ListItemIcon>
-
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <LocalLibraryIcon />
+      </ListItemIcon>
+      <Link
+        to='/bible-study-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Bible Study' />
-      </ListItemButton>
-    </Link>
-
-    <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
-      <ListItemButton>
-        <ListItemIcon>
-          <ChildCareIcon />
-        </ListItemIcon>
-
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <ChildCareIcon />
+      </ListItemIcon>
+      <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
         <ListItemText primary='Children Stories' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/children-song-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <BedroomBabyIcon />
-        </ListItemIcon>
-
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <BedroomBabyIcon />
+      </ListItemIcon>
+      <Link
+        to='/children-song-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Children Songs' />
-      </ListItemButton>
-    </Link>
-
+      </Link>
+    </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <EmojiEventsIcon />
       </ListItemIcon>
       <ListItemText primary='Events' />
     </ListItemButton>
-
-    <Link
-      to='/donations-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <AttachMoneyIcon />
-        </ListItemIcon>
-
+    <ListItemButton>
+      <ListItemIcon>
+        <AttachMoneyIcon />
+      </ListItemIcon>
+      <Link
+        to='/donations-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Givings & Donations' />
-      </ListItemButton>
-    </Link>
-
-    <Link
-      to='/memory-verse-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <MemoryIcon />
-        </ListItemIcon>
-        <ListItemText primary='Memory Verse' />
-      </ListItemButton>
-    </Link>
-
-    <Link
-      to='/partners-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <HandshakeIcon />
-        </ListItemIcon>
-        <ListItemText primary='Partners' />
-      </ListItemButton>
-    </Link>
-    <Link to='/posts-admin' style={{ textDecoration: 'none', color: 'black' }}>
-      <ListItemButton>
-        <ListItemIcon>
-          <PostAddIcon />
-        </ListItemIcon>
-        <ListItemText primary='Posts' />
-      </ListItemButton>
-    </Link>
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <MemoryIcon />
+      </ListItemIcon>
+      <ListItemText primary='Memory Verse' />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <HandshakeIcon />
+      </ListItemIcon>
+      <ListItemText primary='Partners' />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <PostAddIcon />
+      </ListItemIcon>
+      <ListItemText primary='Posts' />
+    </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <DynamicFormIcon />
@@ -172,113 +149,90 @@ export const secondaryMenuItems = (
     <ListSubheader component='div' inset>
       Additional Menu
     </ListSubheader>
-    <Link
-      to='/alumni-announcement-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <AnnouncementIcon />
-        </ListItemIcon>
-
+    <ListItemButton>
+      <ListItemIcon>
+        <AnnouncementIcon />
+      </ListItemIcon>
+      <Link
+        to='/alumni-announcement-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Alumni Announcement' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/bible-story-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <AutoStoriesIcon />
-        </ListItemIcon>
-
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <AutoStoriesIcon />
+      </ListItemIcon>
+      <Link
+        to='/bible-story-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Bible Story' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/bible-study-schedule-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <MoreTimeIcon />
-        </ListItemIcon>
-
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <MoreTimeIcon />
+      </ListItemIcon>
+      <Link
+        to='/bible-study-schedule-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Bible Study Schedule' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/contact-us-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <ContactMailIcon />
-        </ListItemIcon>
-
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <ContactMailIcon />
+      </ListItemIcon>
+      <Link
+        to='/contact-us-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Contact Us Form' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/meditation-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <ConnectWithoutContactIcon />
-        </ListItemIcon>
-
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <ConnectWithoutContactIcon />
+      </ListItemIcon>
+      <Link
+        to='/meditation-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Meditation' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/membership-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <SupervisedUserCircleIcon />
-        </ListItemIcon>
-
+        </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <SupervisedUserCircleIcon />
+      </ListItemIcon>
+      <Link
+        to='/membership-admin'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <ListItemText primary='Memberhips' />
-      </ListItemButton>
-    </Link>
-
-    <Link
-      to='/members-of-council-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <SwitchAccountIcon />
-        </ListItemIcon>
-
-        <ListItemText primary='Members of Council' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/prayer-meeting-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <MeetingRoomIcon />
-        </ListItemIcon>
-        <ListItemText primary='Prayer Meeting' />
-      </ListItemButton>
-    </Link>
-    <Link
-      to='/prayer-request-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <RequestQuoteIcon />
-        </ListItemIcon>
-        <ListItemText primary='Prayer Requests' />
-      </ListItemButton>
-    </Link>
+        </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <SwitchAccountIcon />
+      </ListItemIcon>
+      <ListItemText primary='Members of Council' />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <MeetingRoomIcon />
+      </ListItemIcon>
+      <ListItemText primary='Prayer Meeting' />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <RequestQuoteIcon />
+      </ListItemIcon>
+      <ListItemText primary='Prayer Requests' />
+    </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <HelpOutlineIcon />

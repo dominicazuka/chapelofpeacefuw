@@ -22,7 +22,7 @@ import CreateIcon from '@mui/icons-material/Create'
 import Add from '@mui/icons-material/Add'
 import { styled } from '@mui/material/styles'
 
-const BibleStudy = () => {
+const PrayerMeeting = () => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -31,10 +31,12 @@ const BibleStudy = () => {
     color: theme.palette.text.secondary
   }))
 
-  function createData (title, description, photo, action) {
+  function createData (date, time, venue, photo, action) {
     return {
-      title,
-      description,
+      date,
+      time,
+      venue,
+
       photo,
       action
     }
@@ -42,26 +44,9 @@ const BibleStudy = () => {
 
   const rows = [
     createData(
-      'Title Test',
-      'Description Test',
-      <Avatar
-        align='center'
-        src={
-          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
-        }
-      />,
-      <Stack align='center'>
-        <IconButton aria-label='delete' size='small'>
-          <DeleteIcon fontSize='inherit' color='error' />
-        </IconButton>
-        <IconButton aria-label='create' size='small'>
-          <CreateIcon fontSize='inherit' />
-        </IconButton>
-      </Stack>
-    ),
-    createData(
-      'Title Test',
-      'Description Test',
+      '2-2-1998',
+      '10AM',
+      'test Venue',
       <Avatar
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
@@ -77,8 +62,9 @@ const BibleStudy = () => {
       </Stack>
     ),
     createData(
-      'Title Test',
-      'Description Test',
+      '2-2-1998',
+      '10AM',
+      'test Venue',
       <Avatar
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
@@ -94,8 +80,9 @@ const BibleStudy = () => {
       </Stack>
     ),
     createData(
-      'Title Test',
-      'Description Test',
+      '2-2-1998',
+      '10AM',
+      'test Venue',
       <Avatar
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
@@ -111,8 +98,27 @@ const BibleStudy = () => {
       </Stack>
     ),
     createData(
-      'Title Test',
-      'Description Test',
+      '2-2-1998',
+      '10AM',
+      'test Venue',
+      <Avatar
+        src={
+          'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
+        }
+      />,
+      <Stack align='center'>
+        <IconButton aria-label='delete' size='small'>
+          <DeleteIcon fontSize='inherit' color='error' />
+        </IconButton>
+        <IconButton aria-label='create' size='small'>
+          <CreateIcon fontSize='inherit' />
+        </IconButton>
+      </Stack>
+    ),
+    createData(
+      '2-2-1998',
+      '10AM',
+      'test Venue',
       <Avatar
         src={
           'http://www.wpsimplesponsorships.com/wp-content/uploads/2019/05/cropped-icon-256x256.png'
@@ -148,13 +154,13 @@ const BibleStudy = () => {
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Title>Bible Study</Title>
+                  <Title>All Prayer Meeting</Title>
 
                   <Stack spacing={2}>
                     <Item></Item>
                     <Item>
                       <Button variant='contained' startIcon={<Add />}>
-                        Add Bible Study
+                        Add Prayer Meeting
                       </Button>
                     </Item>
                   </Stack>
@@ -163,8 +169,9 @@ const BibleStudy = () => {
                       <TableHead>
                         <TableRow>
                           <TableCell>S/N</TableCell>
-                          <TableCell align='center'>Title</TableCell>
-                          <TableCell align='center'>Description</TableCell>
+                          <TableCell align='center'>Date</TableCell>
+                          <TableCell align='center'>Time</TableCell>
+                          <TableCell align='center'>Venue</TableCell>
                           <TableCell align='center'>Photo</TableCell>
                           <TableCell align='center'>Action</TableCell>
                         </TableRow>
@@ -172,7 +179,7 @@ const BibleStudy = () => {
                       <TableBody>
                         {rows.map((row, i) => (
                           <TableRow
-                            key={row.url}
+                            key={row.date}
                             sx={{
                               '&:last-child td, &:last-child th': { border: 0 }
                             }}
@@ -180,10 +187,9 @@ const BibleStudy = () => {
                             <TableCell sx={{ width: '10px' }}>
                               {i + 1}
                             </TableCell>
-                            <TableCell align='center'>{row.title}</TableCell>
-                            <TableCell align='center'>
-                              {row.description}
-                            </TableCell>
+                            <TableCell align='center'>{row.date}</TableCell>
+                            <TableCell align='center'>{row.time}</TableCell>
+                            <TableCell align='center'>{row.venue}</TableCell>
                             <TableCell align='center'>{row.photo}</TableCell>
                             <TableCell align='center'>{row.action}</TableCell>
                           </TableRow>
@@ -201,4 +207,4 @@ const BibleStudy = () => {
   )
 }
 
-export default BibleStudy
+export default PrayerMeeting

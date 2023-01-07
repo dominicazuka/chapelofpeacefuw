@@ -35,15 +35,6 @@ const BibleStudyAdmin = lazy(() => import('./admin/pages/BibleStudy'))
 const BibleStudyScheduleAdmin = lazy(() => import('./admin/pages/BibleStudySchedule'))
 const ChildrenSongAdmin = lazy(() => import('./admin/pages/ChildrenSong'))
 const ContactUsAdmin = lazy(() => import('./admin/pages/ContactUs'))
-const DonationsAdmin = lazy(() => import('./admin/pages/Donations'))
-const MeditationAdmin = lazy(() => import('./admin/pages/Meditation'))
-const MembershipAdmin = lazy(() => import('./admin/pages/Membership'))
-const MembersOfCouncilAdmin = lazy(() => import('./admin/pages/MembersOfCouncil'))
-const MemoryVerseAdmin = lazy(() => import('./admin/pages/MemoryVerse'))
-const PartnersAdmin = lazy(() => import('./admin/pages/Partners'))
-const PostsAdmin = lazy(() => import('./admin/pages/Posts'))
-const PrayerMeetingAdmin = lazy(() => import('./admin/pages/PrayerMeeting'))
-const PrayerRequestAdmin = lazy(() => import('./admin/pages/PrayerRequest'))
 
 export const ThemeContext = createContext(null)
 
@@ -100,15 +91,6 @@ function App () {
               <Route path='/bible-study-schedule-admin' element={<BibleStudyScheduleAdmin />} />
               <Route path='/children-song-admin' element={<ChildrenSongAdmin />} />
               <Route path='/contact-us-admin' element={<ContactUsAdmin />} />
-              <Route path='/donations-admin' element={<DonationsAdmin />} />
-              <Route path='/meditation-admin' element={<MeditationAdmin />} />
-              <Route path='/membership-admin' element={<MembershipAdmin />} />
-              <Route path='/members-of-council-admin' element={<MembersOfCouncilAdmin />} />
-              <Route path='/memory-verse-admin' element={<MemoryVerseAdmin />} />
-              <Route path='/partners-admin' element={<PartnersAdmin />} />
-              <Route path='/posts-admin' element={<PostsAdmin />} />
-              <Route path='/prayer-meeting-admin' element={<PrayerMeetingAdmin />} />
-              <Route path='/prayer-request-admin' element={<PrayerRequestAdmin />} />
               <Route path='*' element={<Navigate to='/' replace />} />
             </Routes>
           </main>

@@ -172,7 +172,7 @@ const BibleStudy = () => {
                       <TableBody>
                         {rows.map((row, i) => (
                           <TableRow
-                            key={row.url}
+                            key={row.name}
                             sx={{
                               '&:last-child td, &:last-child th': { border: 0 }
                             }}
