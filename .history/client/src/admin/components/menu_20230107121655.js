@@ -73,7 +73,7 @@ export const mainMenuItems = (
       </ListItemButton>
     </Link>
 
-    <Link to='/children-story-admin' style={{ textDecoration: 'none', color: 'black' }}>
+    <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
       <ListItemButton>
         <ListItemIcon>
           <ChildCareIcon />

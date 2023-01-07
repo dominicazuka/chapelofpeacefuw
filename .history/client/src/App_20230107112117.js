@@ -34,7 +34,6 @@ const BibleStoryAdmin = lazy(() => import('./admin/pages/BibleStory'))
 const BibleStudyAdmin = lazy(() => import('./admin/pages/BibleStudy'))
 const BibleStudyScheduleAdmin = lazy(() => import('./admin/pages/BibleStudySchedule'))
 const ChildrenSongAdmin = lazy(() => import('./admin/pages/ChildrenSong'))
-const ChildrenStoryAdmin = lazy(() => import('./admin/pages/ChildrenStory'))
 const ContactUsAdmin = lazy(() => import('./admin/pages/ContactUs'))
 const DonationsAdmin = lazy(() => import('./admin/pages/Donations'))
 const MeditationAdmin = lazy(() => import('./admin/pages/Meditation'))
@@ -46,12 +45,6 @@ const PostsAdmin = lazy(() => import('./admin/pages/Posts'))
 const PrayerMeetingAdmin = lazy(() => import('./admin/pages/PrayerMeeting'))
 const PrayerRequestAdmin = lazy(() => import('./admin/pages/PrayerRequest'))
 const ResponseFormAdmin = lazy(() => import('./admin/pages/ResponseForm'))
-const ServicesAdmin = lazy(() => import('./admin/pages/Services'))
-const SlidersAdmin = lazy(() => import('./admin/pages/Sliders'))
-const TestimonialsAdmin = lazy(() => import('./admin/pages/Testimonials'))
-const UsersAdmin = lazy(() => import('./admin/pages/Users'))
-const UnitsAdmin = lazy(() => import('./admin/pages/Units'))
-const EventsAdmin = lazy(() => import('./admin/pages/Events'))
 
 export const ThemeContext = createContext(null)
 
@@ -107,7 +100,6 @@ function App () {
               <Route path='/bible-study-admin' element={<BibleStudyAdmin />} />
               <Route path='/bible-study-schedule-admin' element={<BibleStudyScheduleAdmin />} />
               <Route path='/children-song-admin' element={<ChildrenSongAdmin />} />
-              <Route path='/children-story-admin' element={<ChildrenStoryAdmin />} />
               <Route path='/contact-us-admin' element={<ContactUsAdmin />} />
               <Route path='/donations-admin' element={<DonationsAdmin />} />
               <Route path='/meditation-admin' element={<MeditationAdmin />} />
@@ -119,12 +111,6 @@ function App () {
               <Route path='/prayer-meeting-admin' element={<PrayerMeetingAdmin />} />
               <Route path='/prayer-request-admin' element={<PrayerRequestAdmin />} />
               <Route path='/response-form-admin' element={<ResponseFormAdmin />} />
-              <Route path='/services-admin' element={<ServicesAdmin />} />
-              <Route path='/sliders-admin' element={<SlidersAdmin />} />
-              <Route path='/testimonials-admin' element={<TestimonialsAdmin />} />
-              <Route path='/users-admin' element={<UsersAdmin />} />
-              <Route path='/units-admin' element={<UnitsAdmin />} />
-              <Route path='/events-admin' element={<EventsAdmin />} />
               <Route path='*' element={<Navigate to='/' replace />} />
             </Routes>
           </main>

@@ -73,7 +73,7 @@ export const mainMenuItems = (
       </ListItemButton>
     </Link>
 
-    <Link to='/children-story-admin' style={{ textDecoration: 'none', color: 'black' }}>
+    <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
       <ListItemButton>
         <ListItemIcon>
           <ChildCareIcon />
@@ -94,17 +94,14 @@ export const mainMenuItems = (
         <ListItemText primary='Children Songs' />
       </ListItemButton>
     </Link>
-<Link
-      to='/events-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
+
     <ListItemButton>
       <ListItemIcon>
         <EmojiEventsIcon />
       </ListItemIcon>
       <ListItemText primary='Events' />
     </ListItemButton>
-</Link>
+
     <Link
       to='/donations-admin'
       style={{ textDecoration: 'none', color: 'black' }}
@@ -149,25 +146,20 @@ export const mainMenuItems = (
         <ListItemText primary='Posts' />
       </ListItemButton>
     </Link>
-    <Link
-      to='/testimonials-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <RecordVoiceOverIcon />
-        </ListItemIcon>
-        <ListItemText primary='Testimony' />
+    <Link to='/testimonials-admin' style={{ textDecoration: 'none', color: 'black' }}>
+    <ListItemButton>
+      <ListItemIcon>
+        <RecordVoiceOverIcon />
+      </ListItemIcon>
+      <ListItemText primary='Testimony' />
       </ListItemButton>
-    </Link>
-    <Link to='/users-admin' style={{ textDecoration: 'none', color: 'black' }}>
-      <ListItemButton>
-        <ListItemIcon>
-          <ManageAccountsIcon />
-        </ListItemIcon>
-        <ListItemText primary='Admin Users' />
-      </ListItemButton>
-    </Link>
+      </Link>
+    <ListItemButton>
+      <ListItemIcon>
+        <ManageAccountsIcon />
+      </ListItemIcon>
+      <ListItemText primary='Admin Users' />
+    </ListItemButton>
   </React.Fragment>
 )
 
@@ -287,42 +279,45 @@ export const secondaryMenuItems = (
       to='/response-form-admin'
       style={{ textDecoration: 'none', color: 'black' }}
     >
-      <ListItemButton>
-        <ListItemIcon>
-          <HelpOutlineIcon />
-        </ListItemIcon>
-        <ListItemText primary='Response Form' />
+    <ListItemButton>
+      <ListItemIcon>
+        <HelpOutlineIcon />
+      </ListItemIcon>
+      <ListItemText primary='Response Form' />
       </ListItemButton>
     </Link>
     <Link
       to='/services-admin'
       style={{ textDecoration: 'none', color: 'black' }}
     >
-      <ListItemButton>
-        <ListItemIcon>
-          <MiscellaneousServicesIcon />
-        </ListItemIcon>
-        <ListItemText primary='Services' />
+    <ListItemButton>
+      <ListItemIcon>
+        <MiscellaneousServicesIcon />
+      </ListItemIcon>
+      <ListItemText primary='Services' />
       </ListItemButton>
     </Link>
     <Link
       to='/sliders-admin'
       style={{ textDecoration: 'none', color: 'black' }}
     >
-      <ListItemButton>
-        <ListItemIcon>
-          <ViewCarouselIcon />
-        </ListItemIcon>
-        <ListItemText primary='Sliders' />
+    <ListItemButton>
+      <ListItemIcon>
+        <ViewCarouselIcon />
+      </ListItemIcon>
+      <ListItemText primary='Sliders' />
       </ListItemButton>
     </Link>
-    <Link to='/units-admin' style={{ textDecoration: 'none', color: 'black' }}>
-      <ListItemButton>
-        <ListItemIcon>
-          <ApartmentIcon />
-        </ListItemIcon>
-        <ListItemText primary='Units' />
+    <Link
+      to='/units-admin'
+      style={{ textDecoration: 'none', color: 'black' }}
+    >
+    <ListItemButton>
+      <ListItemIcon>
+        <ApartmentIcon />
+      </ListItemIcon>
+      <ListItemText primary='Units' />
       </ListItemButton>
-    </Link>
+      </Link>
   </React.Fragment>
 )

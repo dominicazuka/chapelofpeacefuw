@@ -73,7 +73,7 @@ export const mainMenuItems = (
       </ListItemButton>
     </Link>
 
-    <Link to='/children-story-admin' style={{ textDecoration: 'none', color: 'black' }}>
+    <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
       <ListItemButton>
         <ListItemIcon>
           <ChildCareIcon />
@@ -94,17 +94,14 @@ export const mainMenuItems = (
         <ListItemText primary='Children Songs' />
       </ListItemButton>
     </Link>
-<Link
-      to='/events-admin'
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
+
     <ListItemButton>
       <ListItemIcon>
         <EmojiEventsIcon />
       </ListItemIcon>
       <ListItemText primary='Events' />
     </ListItemButton>
-</Link>
+
     <Link
       to='/donations-admin'
       style={{ textDecoration: 'none', color: 'black' }}

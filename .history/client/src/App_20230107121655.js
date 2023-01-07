@@ -34,7 +34,6 @@ const BibleStoryAdmin = lazy(() => import('./admin/pages/BibleStory'))
 const BibleStudyAdmin = lazy(() => import('./admin/pages/BibleStudy'))
 const BibleStudyScheduleAdmin = lazy(() => import('./admin/pages/BibleStudySchedule'))
 const ChildrenSongAdmin = lazy(() => import('./admin/pages/ChildrenSong'))
-const ChildrenStoryAdmin = lazy(() => import('./admin/pages/ChildrenStory'))
 const ContactUsAdmin = lazy(() => import('./admin/pages/ContactUs'))
 const DonationsAdmin = lazy(() => import('./admin/pages/Donations'))
 const MeditationAdmin = lazy(() => import('./admin/pages/Meditation'))
@@ -107,7 +106,6 @@ function App () {
               <Route path='/bible-study-admin' element={<BibleStudyAdmin />} />
               <Route path='/bible-study-schedule-admin' element={<BibleStudyScheduleAdmin />} />
               <Route path='/children-song-admin' element={<ChildrenSongAdmin />} />
-              <Route path='/children-story-admin' element={<ChildrenStoryAdmin />} />
               <Route path='/contact-us-admin' element={<ContactUsAdmin />} />
               <Route path='/donations-admin' element={<DonationsAdmin />} />
               <Route path='/meditation-admin' element={<MeditationAdmin />} />
