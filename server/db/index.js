@@ -51,7 +51,8 @@ const UnitModel = sequelize.define('Unit', {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4
   },
-  name: DataTypes.STRING
+  name: DataTypes.STRING,
+  url: DataTypes.STRING,
 })
 
 const PostModel = sequelize.define('Post', {

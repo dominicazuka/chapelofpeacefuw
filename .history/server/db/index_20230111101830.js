@@ -4,13 +4,7 @@ const {
   db_password,
   db_username,
   db_host,
-  user_default_image,
-  post_default_image,
-  service_default_image,
-  membership_default_image,
-  prayer_meeting_bulletin_default_image,
-  children_unit_slider_default_image,
-  bible_stories_default_image
+  user_default_image
 } = require('../config')
 
 // Option 3: Passing parameters separately (other dialects)
@@ -57,7 +51,8 @@ const UnitModel = sequelize.define('Unit', {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4
   },
-  name: DataTypes.STRING
+  name: DataTypes.STRING,
+  url: DataTypes.STRING,
 })
 
 const PostModel = sequelize.define('Post', {
@@ -75,11 +70,7 @@ const PostModel = sequelize.define('Post', {
   name: DataTypes.STRING,
   description: DataTypes.STRING,
   content: DataTypes.STRING,
-  author_id: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: post_default_image
-  }
+  photo: DataTypes.STRING
 })
 
 const ServiceModel = sequelize.define('Service', {
@@ -96,11 +87,8 @@ const ServiceModel = sequelize.define('Service', {
   name: DataTypes.STRING,
   description: DataTypes.STRING,
   content: DataTypes.STRING,
-  author_id: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: service_default_image
-  }
+
+  photo: DataTypes.STRING
 })
 
 const PartnersModel = sequelize.define('Partners', {
@@ -117,11 +105,7 @@ const PartnersModel = sequelize.define('Partners', {
   name: DataTypes.STRING,
   description: DataTypes.STRING,
   content: DataTypes.STRING,
-  author_id: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: post_default_image
-  }
+  photo: DataTypes.STRING
 })
 
 const ContactUsModel = sequelize.define('Contact', {
@@ -137,7 +121,7 @@ const ContactUsModel = sequelize.define('Contact', {
   name: DataTypes.STRING,
   email: DataTypes.STRING,
   subject: DataTypes.STRING,
-  comments: DataTypes.STRING
+  content: DataTypes.STRING
 })
 
 const DonationModel = sequelize.define('Donation', {
@@ -156,7 +140,7 @@ const DonationModel = sequelize.define('Donation', {
   amount: DataTypes.FLOAT,
   purpose: DataTypes.STRING,
   gateway: DataTypes.STRING,
-  details: DataTypes.JSON
+  details: DataTypes.STRING
 })
 
 const MembershipModel = sequelize.define('Membership', {
@@ -194,11 +178,8 @@ const MembershipModel = sequelize.define('Membership', {
   holy_ghost_baptism: DataTypes.STRING,
   speaking_in_tongues: DataTypes.STRING,
   service_unit: DataTypes.STRING,
-  comments: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: membership_default_image
-  }
+  content: DataTypes.STRING,
+  photo: DataTypes.STRING
 })
 
 const ResponseModel = sequelize.define('Response', {
@@ -215,15 +196,14 @@ const ResponseModel = sequelize.define('Response', {
   sex: DataTypes.STRING,
   marital_status: DataTypes.STRING,
   phone_no: DataTypes.STRING,
-  date_of_birth: DataTypes.STRING,
   status: DataTypes.STRING,
   department: DataTypes.STRING,
   level: DataTypes.STRING,
   hostel_name: DataTypes.STRING,
   room_number: DataTypes.STRING,
   residential_address: DataTypes.STRING,
-  reasons: DataTypes.STRING,
-  prayer_points: DataTypes.STRING
+  reason: DataTypes.STRING,
+  prayer_point: DataTypes.STRING
 })
 
 const BibleStudyModel = sequelize.define('BibleStudy', {
@@ -238,10 +218,8 @@ const BibleStudyModel = sequelize.define('BibleStudy', {
   },
   title: DataTypes.STRING,
   description: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: post_default_image
-  }
+
+  photo: DataTypes.STRING
 })
 
 const BibleStudyScheduleModel = sequelize.define('BibleStudySchedule', {
@@ -258,10 +236,8 @@ const BibleStudyScheduleModel = sequelize.define('BibleStudySchedule', {
   time: DataTypes.STRING,
   venue: DataTypes.STRING,
   zoom_link: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: post_default_image
-  }
+
+  photo: DataTypes.STRING
 })
 
 const PrayerRequestsModel = sequelize.define('PrayerRequests', {
@@ -277,7 +253,7 @@ const PrayerRequestsModel = sequelize.define('PrayerRequests', {
   name: DataTypes.STRING,
   phone_no: DataTypes.STRING,
   email: DataTypes.STRING,
-  comments: DataTypes.STRING
+  content: DataTypes.STRING
 })
 
 const PrayerMeetingBulletinModel = sequelize.define('PrayerMeetingBulletin', {
@@ -293,10 +269,7 @@ const PrayerMeetingBulletinModel = sequelize.define('PrayerMeetingBulletin', {
   date: DataTypes.STRING,
   time: DataTypes.STRING,
   venue: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: prayer_meeting_bulletin_default_image
-  }
+  photo: DataTypes.STRING
 })
 
 const MeditationModel = sequelize.define('Meditation', {
@@ -309,17 +282,15 @@ const MeditationModel = sequelize.define('Meditation', {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4
   },
+  title: DataTypes.STRING,
   date: DataTypes.STRING,
   time: DataTypes.STRING,
   venue: DataTypes.STRING,
-  comments: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: prayer_meeting_bulletin_default_image
-  }
+  content: DataTypes.STRING,
+  photo: DataTypes.STRING
 })
 
-const ChildrenUnitSliderModel = sequelize.define('ChildrenUnitSlider', {
+const SliderModel = sequelize.define('Slider', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -329,13 +300,12 @@ const ChildrenUnitSliderModel = sequelize.define('ChildrenUnitSlider', {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4
   },
-  description: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: children_unit_slider_default_image
-  }
-})
 
+  description: DataTypes.STRING,
+  title: DataTypes.STRING,
+  photo: DataTypes.STRING,
+  page: DataTypes.STRING
+})
 
 const BibleStoriesModel = sequelize.define('BibleStories', {
   id: {
@@ -347,12 +317,10 @@ const BibleStoriesModel = sequelize.define('BibleStories', {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4
   },
+
   title: DataTypes.STRING,
   description: DataTypes.STRING,
-  photo: {
-    type: DataTypes.STRING,
-    defaultValue: bible_stories_default_image
-  }
+  photo: DataTypes.STRING
 })
 
 const ChildrenSongsModel = sequelize.define('ChildrenSongs', {
@@ -367,7 +335,7 @@ const ChildrenSongsModel = sequelize.define('ChildrenSongs', {
   },
   title: DataTypes.STRING,
   description: DataTypes.STRING,
-  url: DataTypes.STRING,
+  url: DataTypes.STRING
 })
 
 const MemoryVerseModel = sequelize.define('MemoryVerse', {
@@ -385,4 +353,215 @@ const MemoryVerseModel = sequelize.define('MemoryVerse', {
   url: DataTypes.STRING
 })
 
-module.exports = { sequelize, UserModel }
+const AlumniAnnouncementModel = sequelize.define('AlumniAnnouncement', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  uuid: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4
+  },
+  title: DataTypes.STRING,
+  description: DataTypes.STRING
+})
+
+const TestimonialsModel = sequelize.define('Testimonials', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  uuid: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4
+  },
+  title: DataTypes.STRING,
+  description: DataTypes.STRING,
+  url: DataTypes.STRING,
+  name: DataTypes.STRING
+})
+
+const AlumniMembershipModel = sequelize.define('AlumniMembership', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  uuid: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4
+  },
+  name: DataTypes.STRING,
+  sex: DataTypes.STRING,
+  marital_status: DataTypes.STRING,
+  no_of_children: DataTypes.FLOAT,
+  date_of_birth: DataTypes.STRING,
+  country: DataTypes.STRING,
+  state: DataTypes.STRING,
+  city: DataTypes.STRING,
+  email: DataTypes.STRING,
+  phone_no: DataTypes.STRING,
+  contact_address: DataTypes.STRING,
+  residential_address: DataTypes.STRING,
+  type_of_membership: DataTypes.STRING,
+  department: DataTypes.STRING,
+  faculty: DataTypes.STRING,
+  permanent_address: DataTypes.STRING,
+  year_of_graduation: DataTypes.STRING,
+  service_unit: DataTypes.STRING,
+  content: DataTypes.STRING,
+  photo: DataTypes.STRING
+})
+
+const MembersOfCouncilModel = sequelize.define('MembersOfCouncil', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  uuid: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4
+  },
+  title: DataTypes.STRING,
+  name: DataTypes.STRING,
+  photo: DataTypes.STRING,
+  facebook: DataTypes.STRING,
+  instagram: DataTypes.STRING,
+  linkedin: DataTypes.STRING,
+  twitter: DataTypes.STRING
+})
+
+//Creating relationships
+
+//User -> unit relationship
+UserModel.hasOne(UnitModel)
+UnitModel.belongsTo(UserModel)
+
+//Post -> user relationship
+UserModel.hasMany(PostModel)
+PostModel.belongsTo(UserModel, {
+  through: "UserPost", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID,
+}})
+
+//Service -> user relationship
+UserModel.hasMany(ServiceModel)
+ServiceModel.belongsTo(UserModel,  {
+  through: "UserService", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Bible Study -> user relationship
+UserModel.hasMany(BibleStudyModel)
+BibleStudyModel.belongsTo(UserModel,  {
+  through: "UserBibleStudy", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Bible Study Schedule -> user relationship
+UserModel.hasMany(BibleStudyScheduleModel)
+BibleStudyScheduleModel.belongsTo(UserModel,  {
+  through: "UserBibleSchedule", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Prayer Bulletin -> user relationship
+UserModel.hasMany(PrayerMeetingBulletinModel)
+PrayerMeetingBulletinModel.belongsTo(UserModel, {
+  through: "UserPrayerMeetingBulletin", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Meditation -> user relationship
+UserModel.hasOne(MeditationModel)
+MeditationModel.belongsTo(UserModel)
+
+//Slider -> user relationship
+UserModel.hasMany(SliderModel)
+SliderModel.belongsTo(UserModel, {
+  through: "UserSlider", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Bible Stories -> user relationship
+UserModel.hasMany(BibleStoriesModel)
+BibleStoriesModel.belongsTo(UserModel, {
+  through: "UserBibleStories", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Children Songs -> user relationship
+UserModel.hasMany(ChildrenSongsModel)
+ChildrenSongsModel.belongsTo(UserModel, {
+  through: "UserChildrenSongs", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Memory Verse -> user relationship
+UserModel.hasMany(MemoryVerseModel)
+MemoryVerseModel.belongsTo(UserModel, {
+  through: "UserMemoryVerse", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//AlumniAnnouncement -> user relationship
+UserModel.hasMany(AlumniAnnouncementModel)
+AlumniAnnouncementModel.belongsTo(UserModel, {
+  through: "UserAlumniAnnouncement", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Testimonial -> user relationship
+UserModel.hasMany(TestimonialsModel)
+TestimonialsModel.belongsTo(UserModel, {
+  through: "UserTestimonial", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}})
+
+//Members of council -> user relationship
+UserModel.hasMany(MembersOfCouncilModel)
+MembersOfCouncilModel.belongsTo(UserModel, {
+  through: "UserMembersOfCouncil", foreignKey: {
+  name: "UserId",
+  type: DataTypes.UUID
+}}) 
+
+module.exports = {
+  sequelize,
+  UserModel,
+  UnitModel,
+  PostModel,
+  ServiceModel,
+  PartnersModel,
+  ContactUsModel,
+  DonationModel,
+  MembershipModel,
+  ResponseModel,
+  BibleStudyModel,
+  BibleStudyScheduleModel,
+  PrayerRequestsModel,
+  PrayerMeetingBulletinModel,
+  MeditationModel,
+  SliderModel,
+  BibleStoriesModel,
+  ChildrenSongsModel,
+  MemoryVerseModel,
+  AlumniAnnouncementModel,
+  TestimonialsModel,
+  AlumniMembershipModel,
+  MembersOfCouncilModel
+}
