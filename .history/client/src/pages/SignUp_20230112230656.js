@@ -120,15 +120,23 @@ export default function SignUp () {
               />
             </Grid>
             <Grid item xs={12}>
-              <label>Upload Photo:</label>
-              <FileUploader
-                multiple={true}
-                handleChange={handleUploadFileChange}
-                name='file'
-                className='form-control'
-                types={fileTypes}
+              <TextField
+                variant='outlined'
+                required
+                fullWidth
+                id='username'
+                label='Username'
+                name='username'
+                autoComplete='username'
               />
             </Grid>
+            <FileUploader
+              multiple={true}
+              handleChange={handleUploadFileChange}
+              name='file'
+              className='form-control'
+              types={fileTypes}
+            />
             <Grid item xs={12}>
               <TextField
                 variant='outlined'

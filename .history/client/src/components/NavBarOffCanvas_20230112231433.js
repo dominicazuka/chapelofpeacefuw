@@ -324,22 +324,22 @@ function NavBarOffCanvas () {
               <li class='nav-item dropdown'>
                 <a
                   class='nav-link dropdown-toggle'
-                  href='#'
-                  id='navbarDropdownMenuLink'
+                  // href='#'
+                  id='navbarDropdownMenuLinkAccount'
                   data-toggle='dropdown'
                   aria-haspopup='true'
                   aria-expanded='false'
-                  style={{
-                        backgroundColour: 'transparent',
-                        textDecoration: 'none',
-                        color: 'blue'
-                      }}
+                  // style={{
+                  //       backgroundColour: 'transparent',
+                  //       textDecoration: 'none',
+                  //       color: 'blue'
+                  //     }}
                 >
                     Account
                 </a>
                 <div
                   class='dropdown-menu'
-                  aria-labelledby='navbarDropdownMenuLink'
+                  aria-labelledby='navbarDropdownMenuLinkAccount'
                 >
                   <a class='nav-link'>
                     <Link

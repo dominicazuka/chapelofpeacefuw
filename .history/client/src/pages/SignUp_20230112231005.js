@@ -116,7 +116,7 @@ export default function SignUp () {
                 id='username'
                 label='Username'
                 name='username'
-                autoComplete='username'
+                // autoComplete='username'
               />
             </Grid>
             <Grid item xs={12}>

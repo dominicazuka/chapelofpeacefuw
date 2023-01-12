@@ -324,7 +324,7 @@ function NavBarOffCanvas () {
               <li class='nav-item dropdown'>
                 <a
                   class='nav-link dropdown-toggle'
-                  href='#'
+                  // href='#'
                   id='navbarDropdownMenuLink'
                   data-toggle='dropdown'
                   aria-haspopup='true'

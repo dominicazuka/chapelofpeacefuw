@@ -321,52 +321,6 @@ function NavBarOffCanvas () {
                   </Link>
                 </a>
               </li>
-              <li class='nav-item dropdown'>
-                <a
-                  class='nav-link dropdown-toggle'
-                  href='#'
-                  id='navbarDropdownMenuLink'
-                  data-toggle='dropdown'
-                  aria-haspopup='true'
-                  aria-expanded='false'
-                  style={{
-                        backgroundColour: 'transparent',
-                        textDecoration: 'none',
-                        color: 'blue'
-                      }}
-                >
-                    Account
-                </a>
-                <div
-                  class='dropdown-menu'
-                  aria-labelledby='navbarDropdownMenuLink'
-                >
-                  <a class='nav-link'>
-                    <Link
-                      to='/login'
-                      style={{
-                        backgroundColour: 'transparent',
-                        textDecoration: 'none',
-                        color: 'blue'
-                      }}
-                    >
-                      Login
-                    </Link>
-                  </a>
-                  <a class='nav-link'>
-                    <Link
-                      to='/register'
-                      style={{
-                        backgroundColour: 'transparent',
-                        textDecoration: 'none',
-                        color: 'blue'
-                      }}
-                    >
-                      Register
-                    </Link>
-                  </a>
-                </div>
-              </li>
               <li class='nav-item'>
                 <a class='nav-link'>
                   <Link

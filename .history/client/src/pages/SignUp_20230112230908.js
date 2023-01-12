@@ -120,7 +120,7 @@ export default function SignUp () {
               />
             </Grid>
             <Grid item xs={12}>
-              <label>Upload Photo:</label>
+              <label className='mt-2'>Upload Photo:</label>
               <FileUploader
                 multiple={true}
                 handleChange={handleUploadFileChange}
