@@ -5,8 +5,10 @@ const {
 
 const getAlumniAnnouncementsService = async payload => {
   try {
-    const result = await getAlumniAnnouncements()
-    return { data: result, error: false, statusCode: 200, message: 'Success' }
+    const result = await getAlumniAnnouncements(payload)
+    return result
+
+    // return { data: result, error: false, statusCode: 200, message: 'Success' }
   } catch {
     return { data: [], error: true, statusCode: 500, message: 'Error' }
   }

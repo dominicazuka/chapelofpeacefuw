@@ -33,7 +33,8 @@ const insertBibleStories = async payload => {
 
 const getBibleStories = async (req, res) => {
   try {
-    const allBibleStory = await BibleStoriesModel.findAll()
+    const allBibleStory = await getBibleStories.findAll()
+    console.log('All Alumni Memberships', allBibleStory)
     return {
       error: false,
       message: 'Query Successfully',

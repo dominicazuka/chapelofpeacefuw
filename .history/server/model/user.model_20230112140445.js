@@ -48,7 +48,7 @@ const insertUser = async payload => {
 const getUsers = async (req, res) => {
   try {
     const allUsers = await UserModel.findAll()
-    console.log('All Users', allUsers)
+    console.log('Alumni Announcement', allAlumniAnnouncement)
     return {
       error: false,
       message: 'Query Successfully',

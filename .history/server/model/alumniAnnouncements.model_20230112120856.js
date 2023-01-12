@@ -31,10 +31,9 @@ const insertAlumniAnnouncements = async payload => {
   }
 }
 
-const getAlumniAnnouncements = async (req, res) => {
+const getAlumniAnnouncements = async (payload) => {
   try {
-    const allAlumniAnnouncement = await AlumniAnnouncementModel.findAll()
-    console.log("Alumni Announcement", allAlumniAnnouncement)
+    const allAlumniAnnouncement = await AlumniAnnouncementModel.find().limit(50);
     return {
       error: false,
       message: 'Query Successfully',

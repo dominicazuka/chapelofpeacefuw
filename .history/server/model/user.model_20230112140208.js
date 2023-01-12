@@ -45,10 +45,10 @@ const insertUser = async payload => {
   }
 }
 
-const getUsers = async (req, res) => {
+const getAlumniAnnouncements = async (req, res) => {
   try {
     const allUsers = await UserModel.findAll()
-    console.log('All Users', allUsers)
+    console.log('Alumni Announcement', allAlumniAnnouncement)
     return {
       error: false,
       message: 'Query Successfully',
@@ -59,4 +59,4 @@ const getUsers = async (req, res) => {
 }
 
 
-module.exports = { insertUser, getUsers }
+module.exports = { insertUser, getAlumniAnnouncements }

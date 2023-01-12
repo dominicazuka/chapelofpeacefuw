@@ -5,7 +5,6 @@ const {
 
 const getAlumniAnnouncementsController = async (req, res) => {
   const result = await getAlumniAnnouncementsService()
-  console.log("result", result)
   res.status(result.statusCode).json(result)
 }
 

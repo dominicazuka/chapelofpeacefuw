@@ -118,17 +118,17 @@ function NavBarOffCanvas () {
                     </Link>
                   </a>
                   <a class='nav-link'>
-                    <Link
-                      to='/response-form'
-                      style={{
-                        backgroundColour: 'transparent',
-                        textDecoration: 'none',
-                        color: 'blue'
-                      }}
-                    >
-                      Response Form
-                    </Link>
-                  </a>
+                  <Link
+                    to='/response-form'
+                    style={{
+                      backgroundColour: 'transparent',
+                      textDecoration: 'none',
+                      color: 'blue'
+                    }}
+                  >
+                    Response Form
+                  </Link>
+                </a>
                 </div>
               </li>
 
@@ -156,33 +156,35 @@ function NavBarOffCanvas () {
                   class='dropdown-menu'
                   aria-labelledby='navbarDropdownMenuLink'
                 >
+
                   <a class='nav-link'>
-                    <Link
-                      to='/bible-study'
-                      style={{
-                        backgroundColour: 'transparent',
-                        textDecoration: 'none',
-                        color: 'blue'
-                      }}
-                    >
-                      Bible Study
-                    </Link>
+                  <Link
+                    to='/bible-study'
+                    style={{
+                      backgroundColour: 'transparent',
+                      textDecoration: 'none',
+                      color: 'blue'
+                    }}
+                  >
+                    Bible Study
+                  </Link>
                   </a>
                   <a class='nav-link'>
-                    <Link
-                      to='/children-unit'
-                      style={{
-                        backgroundColour: 'transparent',
-                        textDecoration: 'none',
-                        color: 'blue'
-                      }}
-                    >
-                      Children Unit
-                    </Link>
-                  </a>
+                  <Link
+                    to='/children-unit'
+                    style={{
+                      backgroundColour: 'transparent',
+                      textDecoration: 'none',
+                      color: 'blue'
+                    }}
+                  >
+                    Children Unit
+                  </Link>
+                </a>
                 </div>
               </li>
 
+             
               <li class='nav-item'>
                 <a class='nav-link'>
                   <Link
@@ -467,10 +469,10 @@ function NavBarOffCanvas () {
               style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
             >
               {'© '}
-              <Link to='/' color='inherit' underline='hover'>
-                Chapel of Peace FUW
-              </Link>{' '}
-              {new Date().getFullYear()}
+      <Link to='/' color="inherit" underline="hover">
+        Chapel of Peace FUW
+      </Link>{' '}
+      {new Date().getFullYear()}
             </div>
           </div>
         </div>

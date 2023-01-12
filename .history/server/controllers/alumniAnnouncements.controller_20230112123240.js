@@ -4,7 +4,8 @@ const {
 } = require('../services/alumniAnnouncements.service')
 
 const getAlumniAnnouncementsController = async (req, res) => {
-  const result = await getAlumniAnnouncementsService()
+  console.log('res>>>>', res)
+  const result = await getAlumniAnnouncementsService(res.data)
   console.log("result", result)
   res.status(result.statusCode).json(result)
 }

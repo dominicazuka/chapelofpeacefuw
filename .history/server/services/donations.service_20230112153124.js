@@ -1,8 +1,8 @@
-const { insertDonations, getDonations } = require('../model/donations.model')
+const { insertDonations } = require('../model/donations.model')
 
 const getDonationsService = async () => {
   try {
-  const result = await getDonations()
+  const result = await insertDonations()
     return { data: result, error: false, statusCode: 200, message: 'Success' }
   } catch {
     return { data: [], error: true, statusCode: 500, message: 'Error' }
