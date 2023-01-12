@@ -52,7 +52,7 @@ function About() {
           columns={12}
           justifyContent="center"
           alignItems="center"
-          style={{ padding: '10px' }}
+          style={{ padding: '50px' }}
           // sx={{mx: 'auto'}}
         >
           {/**LHS**/}
@@ -229,7 +229,7 @@ function About() {
        <Card sx={{ maxWidth: 600, mb: 4 }}>
           <CardMedia
             component="img"
-            height="450"
+            height="600"
             image="https://media.istockphoto.com/photos/priest-with-book-in-the-church-picture-id1314636603?b=1&k=20&m=1314636603&s=170667a&w=0&h=Ro4BuQHufhMRY_G7Yf9LyLUezBLqrZxxJbOkOk0gyYY="
             alt="green iguana"
           />

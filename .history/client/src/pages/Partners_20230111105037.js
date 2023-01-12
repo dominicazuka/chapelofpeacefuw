@@ -123,7 +123,7 @@ function Partners () {
 
         {/** NIFES CARD**/}
         <Grid item xs={12} sm={12} md={4}>
-          <Card sx={{ minWidth: '100%' }}>
+          <Card sx={{ maxWidth: 345 }}>
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label='recipe'>
@@ -187,8 +187,7 @@ function Partners () {
 
         {/** BOYS & GIRLS BRIGADE CARD**/}
         <Grid item xs={12} sm={12} md={4}>
-          <Card sx={{ minWidth: '100%'
- }}>
+          <Card sx={{ maxWidth: 345 }}>
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label='recipe'>
@@ -250,7 +249,7 @@ function Partners () {
 
         {/** CHAPEL ALUMNI**/}
         <Grid item xs={12} sm={12} md={4}>
-          <Card sx={{ minWidth: '100%' }}>
+          <Card sx={{ maxWidth: 345 }}>
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label='recipe'>
@@ -319,7 +318,7 @@ function Partners () {
 
         {/** OTHER PARTNERS CARD**/}
         <Grid item xs={12} sm={12} md={4}>
-          <Card sx={{ minWidth: '100%' }}>
+          <Card sx={{ maxWidth: 345 }}>
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label='recipe'>

@@ -236,7 +236,7 @@ function Units () {
         padding: '10px',
       }}
     >
-      <Typography variant="h3" sx={{color:'white'}}>Worshipping in Spirit and in truth...</Typography>
+      <Typography variant="h5">Lizard</Typography>
       <Typography variant="body2">Subtitle</Typography>
               </Box>
               </Box>

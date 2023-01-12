@@ -9,10 +9,10 @@ import {
   Grid,
   Pagination,
   Stack,
-  Typography
+  Typography,
 } from '@mui/material'
 
-function BlogPostList () {
+function BlogPostList() {
   return (
     <Grid
       container
@@ -26,67 +26,67 @@ function BlogPostList () {
         xs={12}
         sm={12}
         md={6}
-        justifyContent='center'
-        alignItems='center'
+        justifyContent="center"
+        alignItems="center"
       >
-        <Typography variant='h3' align='center' sx={{ mb: 3 }}>
+        <Typography variant="h3" align="center" sx={{ mb: 3 }}>
           Latest posts
         </Typography>
 
-        <Card sx={{ minWidth: '100%', mb: 4 }}>
+        <Card sx={{ maxWidth: 600, mb: 4 }}>
           <CardMedia
-            component='img'
-            height='140'
-            image='https://mdbootstrap.com/img/new/standard/nature/184.jpg'
-            alt='green iguana'
+            component="img"
+            height="140"
+            image="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+            alt="green iguana"
           />
           <CardContent>
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant="h5" component="div">
               Title
             </Typography>
-            <Typography variant='body2' color='text.secondary'>
+            <Typography variant="body2" color="text.secondary">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size='small'>Share</Button>
-            <Button size='small'>Learn More</Button>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
           </CardActions>
         </Card>
 
-        <Card sx={{ minWidth: '100%' }}>
+        <Card sx={{ maxWidth: 600 }}>
           <CardMedia
-            component='img'
-            height='140'
-            image='https://mdbootstrap.com/img/new/standard/nature/184.jpg'
-            alt='green iguana'
+            component="img"
+            height="140"
+            image="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+            alt="green iguana"
           />
           <CardContent>
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant="h5" component="div">
               Title
             </Typography>
-            <Typography variant='body2' color='text.secondary'>
+            <Typography variant="body2" color="text.secondary">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size='small'>Share</Button>
-            <Button size='small'>Learn More</Button>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
           </CardActions>
         </Card>
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           spacing={{ xs: 1, sm: 2, md: 4 }}
-          justifyContent='center'
-          alignItems='center'
+          justifyContent="center"
+          alignItems="center"
         >
           <Pagination
             count={10}
-            color='primary'
+            color="primary"
             sx={{ mt: 3 }}
-            align='center'
+            align="center"
           />
         </Stack>
       </Grid>
@@ -96,49 +96,49 @@ function BlogPostList () {
         xs={12}
         sm={12}
         md={6}
-        justifyContent='center'
-        alignItems='center'
+        justifyContent="center"
+        alignItems="center"
       >
-        <Card sx={{ minWidth: '100%', padding: '20px', mb: 3 }}>
+        <Card sx={{ maxWidth: 600, padding: '20px', mb: 3 }}>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={{ xs: 1, sm: 2, md: 4 }}
-            justifyContent='center'
-            alignItems='center'
+            justifyContent="center"
+            alignItems="center"
           >
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant="h5" component="div">
               Live Streaming Link
             </Typography>
-            <Button size='medium'>Join Now!</Button>
+            <Button size="medium">Join Now!</Button>
           </Stack>
 
           <CardMedia
-            component='video'
-            height='140'
-            image='https://www.youtube.com/embed/_v_TF8t3uOw'
-            title='Live Streaming'
+            component="video"
+            height="140"
+            image="https://www.youtube.com/embed/_v_TF8t3uOw"
+            title="Live Streaming"
             controls
           />
         </Card>
 
-        <Card sx={{ minWidth: '100%', padding: '20px', mb: 3 }}>
+        <Card sx={{ maxWidth: 600, padding: '20px', mb: 3 }}>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={{ xs: 1, sm: 2, md: 4 }}
-            justifyContent='center'
-            alignItems='center'
+            justifyContent="center"
+            alignItems="center"
           >
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant="h5" component="div">
               Live Streaming Link
             </Typography>
-            <Button size='medium'>Join Now!</Button>
+            <Button size="medium">Join Now!</Button>
           </Stack>
- 
+
           <CardMedia
-            component='video'
-            height='140'
-            image='https://www.youtube.com/embed/_v_TF8t3uOw'
-            title='Live Streaming'
+            component="video"
+            height="140"
+            image="https://www.youtube.com/embed/_v_TF8t3uOw"
+            title="Live Streaming"
             controls
           />
         </Card>

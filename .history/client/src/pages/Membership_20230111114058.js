@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Input from '@mui/material/Input'
-import {
-  Button,
-  Checkbox,
-  Grid,
-  InputAdornment,
-  TextField,
-  Typography
-} from '@mui/material'
+import { Button, Checkbox, Grid, TextField, Typography } from '@mui/material'
 import { DatePicker, Space } from 'antd'
 import moment from 'moment'
 import { Country, State, City } from 'country-state-city'
@@ -16,11 +9,6 @@ import { FileUploader } from 'react-drag-drop-files'
 import Axios from '../config'
 import Swal from 'sweetalert2'
 import { validateEmail } from '../utils'
-import Groups3Icon from '@mui/icons-material/Groups3'
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
-import ContactMailIcon from '@mui/icons-material/ContactMail'
-import ElevatorIcon from '@mui/icons-material/Elevator'
-import HomeIcon from '@mui/icons-material/Home'
 
 function Membership () {
   const [date_of_birth, setDate] = useState(null)
@@ -399,7 +387,8 @@ function Membership () {
         justifyContent='center'
         alignItems='center'
         sx={{
-          padding: '40px',
+          paddingLeft: '10px',
+          paddingRight: '10px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center'
@@ -428,7 +417,7 @@ function Membership () {
               id='surname'
               label='Surname'
               name='surname'
-              className='mt-5 mb-3'
+              className='mb-3'
               margin='normal'
               value={lastName}
               onChange={e => setLastName(e.target.value)}
@@ -498,84 +487,92 @@ function Membership () {
           </Grid>
 
           <label className='mt-4'>No. Of Children:</label>
-          <Input
-            type='number'
-            label='No. of Children'
-            id='amount'
-            name='amount'
-            inputProps={{ maxLength: 12 }}
-            placeholder='No. of Children'
-            value={no_of_children}
-            sx={{ width: '100%' }}
-            onChange={e => setChildrenNo(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <Groups3Icon />
-              </InputAdornment>
-            }
-            variant='outlined'
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='number'
+                label='No. of Children'
+                id='amount'
+                name='amount'
+                className='bordered form-control '
+                inputProps={{ maxLength: 12 }}
+                placeholder='No. of Children'
+                value={no_of_children}
+                sx={{ width: '100%' }}
+                onChange={e => setChildrenNo(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Date of Birth:</label>
-          <DatePicker
-            onChange={e => setDate(moment(e).format('DD-MM-YYYY'))}
-            size='large'
-            width='100%'
-            className='form-control'
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Space direction='vertical'>
+                <DatePicker
+                  onChange={e => setDate(moment(e).format('DD-MM-YYYY'))}
+                />
+              </Space>
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Nationality:</label>
-          <select
-            className='form-control required'
-            onChange={e => handleCountryInput(e.target.value)}
-          >
-            <option value='None'>Select Country</option>
-            {filterCountries.map(country => (
-              <option value={country.isoCode} key={country.isoCode}>
-                {country.name}
-              </option>
-            ))}
-          </select>
+          <Grid container direction='row'>
+            <Grid>
+              <select
+                className='form-control required'
+                onChange={e => handleCountryInput(e.target.value)}
+              >
+                <option value='None'>Select Country</option>
+                {filterCountries.map(country => (
+                  <option value={country.isoCode} key={country.isoCode}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
+            </Grid>
+          </Grid>
 
-          <select
-            className='form-control mt-3 required'
-            onChange={e => handleStateInput(e.target.value)}
-          >
-            <option value='None'>Select State</option>
-            {states.map(s => (
-              <option value={s.isoCode} key={s.name}>
-                {s.name}
-              </option>
-            ))}
-          </select>
-
-          <select
-            onChange={e => handleCityInput(e)}
-            className='form-control mt-3 required'
-          >
-            <option value='None'>Select City</option>
-            {cities.map(c => (
-              <option key={c.name}>{c.name}</option>
-            ))}
-          </select>
-
+          <Grid container direction='row' spacing={2}>
+            <Grid item>
+              <select
+                className='form-control mt-3 required'
+                onChange={e => handleStateInput(e.target.value)}
+              >
+                <option value='None'>Select State</option>
+                {states.map(s => (
+                  <option value={s.isoCode} key={s.name}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+            </Grid>
+            <Grid item>
+              <select
+                onChange={e => handleCityInput(e)}
+                className='form-control mt-3 required'
+              >
+                <option value='None'>Select City</option>
+                {cities.map(c => (
+                  <option key={c.name}>{c.name}</option>
+                ))}
+              </select>
+            </Grid>
+          </Grid>
           <label className='mt-4'>Email:</label>
-          <Input
-            type='email'
-            label='Email'
-            id='email'
-            name='email'
-            className='bordered form-control'
-            placeholder='Email Address'
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <AlternateEmailIcon />
-              </InputAdornment>
-            }
-          />
-
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='email'
+                label='Email'
+                id='email'
+                name='email'
+                className='bordered form-control'
+                placeholder='Email Address'
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </Grid>
+          </Grid>
           <label className='mt-3'>Phone Number:</label>
           <MuiTelInput
             value={phone_no}
@@ -617,125 +614,131 @@ function Membership () {
           </Grid>
 
           <label className='mt-4'>Department:</label>
-          <Input
-            type='text'
-            label='Department'
-            id='department'
-            name='department'
-            className='bordered form-control'
-            placeholder='Department'
-            value={department}
-            onChange={e => setDepartment(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <ContactMailIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Department'
+                id='department'
+                name='department'
+                className='bordered form-control'
+                placeholder='Department'
+                value={department}
+                onChange={e => setDepartment(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Level:</label>
-          <Input
-            type='text'
-            label='Level'
-            id='level'
-            name='level'
-            className='bordered form-control'
-            placeholder='Level'
-            value={level}
-            onChange={e => setLevel(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <ElevatorIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Level'
+                id='level'
+                name='level'
+                className='bordered form-control'
+                placeholder='Level'
+                value={level}
+                onChange={e => setLevel(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Permanent Address:</label>
-          <Input
-            type='text'
-            label='Permanent Address'
-            id='permAddress'
-            name='permAddress'
-            className='bordered form-control'
-            placeholder='Permanent Address'
-            style={{ height: '100px', width: '100%' }}
-            value={permanent_address}
-            onChange={e => setPermanentAddress(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <HomeIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Permanent Address'
+                id='permAddress'
+                name='permAddress'
+                className='bordered form-control'
+                placeholder='Permanent Address'
+                style={{ height: '100px', width: '100%' }}
+                value={permanent_address}
+                onChange={e => setPermanentAddress(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Contact Address:</label>
-          <Input
-            type='text'
-            label='Contact Address'
-            id='contactAddress'
-            name='contactAddress'
-            className='bordered form-control'
-            placeholder='Contact Address'
-            style={{ height: '100px', width: '100%' }}
-            value={contact_address}
-            onChange={e => setContactAddress(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <HomeIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Contact Address'
+                id='contactAddress'
+                name='contactAddress'
+                className='bordered form-control'
+                placeholder='Contact Address'
+                style={{ height: '100px', width: '100%' }}
+                value={contact_address}
+                onChange={e => setContactAddress(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Residential Address:</label>
-          <Input
-            type='text'
-            label='Residential Address'
-            id='residentialAddress'
-            name='residentialAddress'
-            className='bordered form-control'
-            placeholder='Residential Address'
-            style={{ height: '100px', width: '100%' }}
-            value={residential_address}
-            onChange={e => setResidentialAddress(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <HomeIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Residential Address'
+                id='residentialAddress'
+                name='residentialAddress'
+                className='bordered form-control'
+                placeholder='Residential Address'
+                style={{ height: '100px', width: '100%' }}
+                value={residential_address}
+                onChange={e => setResidentialAddress(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Next of Kin Name:</label>
-          <Input
-            type='text'
-            label='Next of Kin'
-            id='nextOfKin'
-            name='nextOfKin'
-            className='bordered form-control'
-            placeholder='Next of Kin'
-            value={next_of_kin_name}
-            onChange={e => setNextOfKinName(e.target.value)}
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Next of Kin'
+                id='nextOfKin'
+                name='nextOfKin'
+                className='bordered form-control'
+                placeholder='Next of Kin'
+                value={next_of_kin_name}
+                onChange={e => setNextOfKinName(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Next of Kin Phone No.:</label>
-          <MuiTelInput
-            className='form-control mt-3'
-            placeholder='Phone Number (+234)'
-            value={next_of_kin_phone_no}
-            onChange={handleNextOfKinPhoneChange}
-          />
-
+          <Grid container direction='row'>
+            <Grid>
+              <MuiTelInput
+                className='form-control mt-3'
+                placeholder='Phone Number (+234)'
+                value={next_of_kin_phone_no}
+                onChange={handleNextOfKinPhoneChange}
+              />
+            </Grid>
+          </Grid>
           <label className='mt-4'>Next of Kin Address:</label>
-          <Input
-            type='text'
-            label='Next of Kin Address'
-            id='nextOfKinAddress'
-            name='nextOfKinAddress'
-            className='bordered form-control'
-            placeholder='Next of Kin Address'
-            style={{ height: '100px', width: '100%' }}
-            value={next_of_kin_address}
-            onChange={e => setNextOfKinAddress(e.target.value)}
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Next of Kin Address'
+                id='nextOfKinAddress'
+                name='nextOfKinAddress'
+                className='bordered form-control'
+                placeholder='Next of Kin Address'
+                style={{ height: '100px', width: '100%' }}
+                value={next_of_kin_address}
+                onChange={e => setNextOfKinAddress(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Are you Born Again:</label>
           <Grid container direction='row' spacing={2}>
@@ -852,31 +855,43 @@ function Membership () {
           <label className='mt-4'>
             Chapel Service Unit (or intended unit):
           </label>
-          <select className='form-control required'>
-            <option value=''>Service Unit</option>
-          </select>
+          <Grid container direction='row'>
+            <Grid>
+              <select className='form-control required'>
+                <option value=''>Service Unit</option>
+              </select>
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Comments:</label>
-          <Input
-            type='text'
-            label='Comments'
-            id='comments'
-            name='comments'
-            className='bordered form-control'
-            placeholder='Comments'
-            style={{ height: '100px', width: '100%', marginBottom: '20px' }}
-            value={content}
-            onChange={e => setContent(e.target.value)}
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Comments'
+                id='comments'
+                name='comments'
+                className='bordered form-control'
+                placeholder='Comments'
+                style={{ height: '100px', width: '100%' }}
+                value={content}
+                onChange={e => setContent(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
-          <FileUploader
-            multiple={true}
-            handleChange={handleUploadFileChange}
-            name='file'
-            className='form-control'
-            style={{ height: '300px', marginTop:'20px' }}
-            types={fileTypes}
-          />
+          <Grid container direction='row' sx={{ mt: 5 }}>
+            <Grid item xs={12} sm={12} md={12}>
+              <FileUploader
+                multiple={true}
+                handleChange={handleUploadFileChange}
+                name='file'
+                className='form-control'
+                style={{ height: '300px' }}
+                types={fileTypes}
+              />
+            </Grid>
+          </Grid>
 
           <Button
             variant='contained'
@@ -888,6 +903,10 @@ function Membership () {
             Submit
           </Button>
         </Grid>
+        {/* <Grid item xs={12} sm={12}>
+          
+        </Grid> */}
+
         <Grid sx={{ mb: 3 }} align='center' className='text-center'>
           Thank you for the time you took to fill the form. We will communicate
           with you shortly

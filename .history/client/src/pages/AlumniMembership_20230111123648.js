@@ -151,13 +151,7 @@ function AlumniMembership () {
             placeholder='No. of Children'
           />
           <label className='mt-4'>Date of Birth:</label>
-          <DatePicker
-            size='large'
-            width='100%'
-            className='form-control'
-            onChange={handleDateChange}
-          />
-
+          <DatePicker onChange={handleDateChange} />
           <label className='mt-4'>Nationality:</label>
           <select
             className='form-control required'
@@ -269,12 +263,7 @@ function AlumniMembership () {
             placeholder='Level'
           />
           <label className='mt-4'>Year of Graduation:</label>
-          <DatePicker
-            size='large'
-            width='100%'
-            className='form-control'
-            onChange={handleYearOfGraduationDateChange}
-          />
+          <DatePicker onChange={handleYearOfGraduationDateChange} />
           <label className='mt-4'>Service Unit Served In:</label>
           <select className='form-control required'>
             <option>Service Unit </option>
@@ -285,11 +274,11 @@ function AlumniMembership () {
             label='Comment/Prayer Request'
             id='commentPrayerRequest'
             name='commentPrayerRequest'
-            className='bordered form-control mb-3'
+            className='bordered form-control'
             placeholder='Comment/Prayer Request'
             style={{ height: '100px', width: '100%' }}
           />
-
+          
           <FileUploader
             multiple={true}
             handleChange={handleUploadFileChange}

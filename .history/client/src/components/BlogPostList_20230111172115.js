@@ -133,7 +133,7 @@ function BlogPostList () {
             </Typography>
             <Button size='medium'>Join Now!</Button>
           </Stack>
- 
+
           <CardMedia
             component='video'
             height='140'

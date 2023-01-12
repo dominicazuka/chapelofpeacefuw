@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Input from '@mui/material/Input'
-import {
-  Button,
-  Checkbox,
-  Grid,
-  InputAdornment,
-  TextField,
-  Typography
-} from '@mui/material'
+import { Button, Checkbox, Grid, TextField, Typography } from '@mui/material'
 import { DatePicker, Space } from 'antd'
 import moment from 'moment'
 import { Country, State, City } from 'country-state-city'
@@ -16,11 +9,6 @@ import { FileUploader } from 'react-drag-drop-files'
 import Axios from '../config'
 import Swal from 'sweetalert2'
 import { validateEmail } from '../utils'
-import Groups3Icon from '@mui/icons-material/Groups3'
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
-import ContactMailIcon from '@mui/icons-material/ContactMail'
-import ElevatorIcon from '@mui/icons-material/Elevator'
-import HomeIcon from '@mui/icons-material/Home'
 
 function Membership () {
   const [date_of_birth, setDate] = useState(null)
@@ -30,13 +18,13 @@ function Membership () {
   const [cities, setCities] = useState([])
   const [state, setState] = useState('')
   const [states, setStates] = useState([])
-  const [phone_no, setPhone] = useState('')
+  const [phone_no, setPhone] = useState('') 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [name, setName] = useState('')
   const [sex, setSex] = useState('male')
   const [marital_status, setMaritalStatus] = useState('single')
-  const [no_of_children, setChildrenNo] = useState('')
+  const [no_of_children, setChildrenNo] = useState("")
   const [email, setEmail] = useState('')
   const [type_of_membership, setMembershipType] = useState('student')
   const [department, setDepartment] = useState('')
@@ -88,6 +76,7 @@ function Membership () {
       setCities([])
     } catch (error) {}
   }
+  
 
   const handleStateInput = code => {
     const _states = State.getAllStates()
@@ -106,12 +95,12 @@ function Membership () {
   const handlePhoneChange = e => {
     setPhone(e)
   }
-
+  
   const handleNextOfKinPhoneChange = e => {
     setNextOfKinPhoneNo(e)
   }
 
-  const clearInput = () => {
+const clearInput = () => {
     setLastName('')
     setPhone('')
     setMaritalStatus('')
@@ -124,18 +113,19 @@ function Membership () {
     setHolyGhostBaptism('')
     setDepartment('')
     setFirstName('')
-    setChildrenNo('')
-    setContent('')
-    setServiceUnit('')
-    setSpeakingInTongues('')
-    setBornAgain('')
-    setNextOfKinAddress('')
+  setChildrenNo('')
+  setContent('')
+  setServiceUnit('')
+  setSpeakingInTongues('')
+  setBornAgain('')
+  setNextOfKinAddress('')
+
   }
 
-  const handleSubmit = async e => {
+   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      if (firstName.trim() === '' || lastName.trim() === '') {
+      if (firstName.trim() === '' || lastName.trim() === ''){
         return Swal.fire({
           text: 'Please enter your full name',
           toast: true,
@@ -143,7 +133,7 @@ function Membership () {
         })
       }
 
-      if (sex.trim() === '') {
+      if (sex.trim() === ''){
         return Swal.fire({
           text: 'Please select your Gender',
           toast: true,
@@ -151,7 +141,7 @@ function Membership () {
         })
       }
 
-      if (marital_status.trim() === '') {
+      if (marital_status.trim() === ''){
         return Swal.fire({
           text: 'Please select your Marital Status',
           toast: true,
@@ -159,7 +149,7 @@ function Membership () {
         })
       }
 
-      if (no_of_children.trim() === '') {
+      if (no_of_children.trim() === ''){
         return Swal.fire({
           text: 'Please enter your level',
           toast: true,
@@ -167,7 +157,7 @@ function Membership () {
         })
       }
 
-      if (date_of_birth.trim() === '') {
+      if (date_of_birth.trim() === ''){
         return Swal.fire({
           text: 'Please enter your date of birth',
           toast: true,
@@ -175,7 +165,7 @@ function Membership () {
         })
       }
 
-      if (!validateEmail(email.trim())) {
+      if (!validateEmail(email.trim())){
         return Swal.fire({
           text: 'Please enter your room number',
           toast: true,
@@ -183,7 +173,7 @@ function Membership () {
         })
       }
 
-      if (phone_no.trim() === '') {
+      if (phone_no.trim() === ''){
         return Swal.fire({
           text: 'Please enter your phone number',
           toast: true,
@@ -198,7 +188,7 @@ function Membership () {
           confirmButtonColor: '#0000FF'
         })
       }
-
+      
       if (department.trim() === '') {
         return Swal.fire({
           text: 'Please enter your department',
@@ -214,6 +204,7 @@ function Membership () {
           confirmButtonColor: '#0000FF'
         })
       }
+
 
       if (permanent_address.trim() === '') {
         return Swal.fire({
@@ -247,7 +238,7 @@ function Membership () {
         })
       }
 
-      if (next_of_kin_phone_no.trim() === '') {
+       if (next_of_kin_phone_no.trim() === '') {
         return Swal.fire({
           text: 'Please enter your next of kin phone number',
           toast: true,
@@ -255,7 +246,7 @@ function Membership () {
         })
       }
 
-      if (next_of_kin_address.trim() === '') {
+       if (next_of_kin_address.trim() === '') {
         return Swal.fire({
           text: 'Please enter your next of kin address',
           toast: true,
@@ -263,7 +254,7 @@ function Membership () {
         })
       }
 
-      if (born_again.trim() === '') {
+       if (born_again.trim() === '') {
         return Swal.fire({
           text: 'Please select your baptism status',
           toast: true,
@@ -271,7 +262,7 @@ function Membership () {
         })
       }
 
-      if (baptized.trim() === '') {
+       if (baptized.trim() === '') {
         return Swal.fire({
           text: 'Please select an option if you were baptized by water',
           toast: true,
@@ -279,7 +270,7 @@ function Membership () {
         })
       }
 
-      if (baptism_method.trim() === '') {
+       if (baptism_method.trim() === '') {
         return Swal.fire({
           text: 'Please select your baptism method',
           toast: true,
@@ -287,7 +278,7 @@ function Membership () {
         })
       }
 
-      if (holy_ghost_baptism.trim() === '') {
+       if (holy_ghost_baptism.trim() === '') {
         return Swal.fire({
           text: `Please select if you've been Baptized`,
           toast: true,
@@ -295,7 +286,7 @@ function Membership () {
         })
       }
 
-      if (speaking_in_tongues.trim() === '') {
+       if (speaking_in_tongues.trim() === '') {
         return Swal.fire({
           text: 'Please select if you believe in speaking in tongues',
           toast: true,
@@ -318,7 +309,7 @@ function Membership () {
           confirmButtonColor: '#0000FF'
         })
       }
-
+      
       const fullName = `${firstName} ` + `${lastName}`
       setName(fullName)
       const body = {
@@ -346,9 +337,9 @@ function Membership () {
         baptism_method,
         holy_ghost_baptism,
         speaking_in_tongues,
-        service_unit: 'test',
+        service_unit:"test",
         content,
-        photo: 'test.jpg'
+        photo: "test.jpg"
       }
       await Axios.post('/memberships', body)
       clearInput()
@@ -358,7 +349,7 @@ function Membership () {
         animation: true,
         confirmButtonColor: '#0000FF'
       })
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     } catch (error) {
       console.log(error)
     }
@@ -382,7 +373,9 @@ function Membership () {
           color: 'white',
           height: '100%',
           paddingTop: '70px',
-          paddingBottom: '70px'
+          paddingBottom: '70px',
+          paddingLeft: '40px',
+          paddingRight: '40px',
         }}
       >
         <strong>
@@ -398,41 +391,37 @@ function Membership () {
         columns={12}
         justifyContent='center'
         alignItems='center'
-        sx={{
-          padding: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}
+        sx={{padding:"20px"}}
       >
         <Grid item xs={12} sm={12} md={12}>
           <label>Full Name:</label>
           <Grid container direction='row' spacing={2}>
-            <TextField
-              fullWidth
-              required
-              id='firstName'
-              label='First Name'
-              name='firstName'
-              className=''
-              margin='normal'
-              width='100%'
-              value={firstName}
-              onChange={e => setFirstName(e.target.value)}
-            />
-          </Grid>
-          <Grid container direction='row' spacing={2}>
-            <TextField
-              fullWidth
-              required
-              id='surname'
-              label='Surname'
-              name='surname'
-              className='mt-5 mb-3'
-              margin='normal'
-              value={lastName}
-              onChange={e => setLastName(e.target.value)}
-            />
+            <Grid item>
+              <TextField
+                fullWidth
+                required
+                id='firstName'
+                label='First Name'
+                name='firstName'
+                className=''
+                margin='normal'
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                fullWidth
+                required
+                id='surname'
+                label='Surname'
+                name='surname'
+                className='mb-3'
+                margin='normal'
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </Grid>
           </Grid>
 
           <label>Sex:</label>
@@ -442,140 +431,146 @@ function Membership () {
                 checked={sex === 'male'}
                 onChange={() => setSex('male')}
               />
-              <label class='form-check-label' for='male'>
-                Male
-              </label>
+                <label class='form-check-label' for='male'>
+                  Male
+                </label>
             </Grid>
             <Grid item>
               <Checkbox
-                checked={sex === 'female'}
-                onChange={() => setSex('female')}
+              checked={sex === 'female'}
+              onChange={() => setSex('female')}
               />
-              <label class='form-check-label' for='female'>
-                Female
-              </label>
+                <label class='form-check-label' for='female'>
+                  Female
+                </label>
             </Grid>
           </Grid>
 
           <label className='mt-3'>Marital Status:</label>
           <Grid container direction='row' spacing={4}>
             <Grid item>
-              <Checkbox
-                checked={marital_status === 'single'}
-                onChange={() => setMaritalStatus('single')}
+              <Checkbox 
+              checked={marital_status === 'single'}
+              onChange={() => setMaritalStatus('single')}
               />
-              <label class='form-check-label' for='single'>
-                Single
-              </label>
+                <label class='form-check-label' for='single'>
+                  Single
+                </label>
             </Grid>
             <Grid item>
-              <Checkbox
+              <Checkbox 
                 checked={marital_status === 'married'}
                 onChange={() => setMaritalStatus('married')}
               />
-              <label class='form-check-label' for='married'>
-                Married
-              </label>
+                <label class='form-check-label' for='married'>
+                  Married
+                </label>
             </Grid>
             <Grid item>
               <Checkbox
                 checked={marital_status === 'widowed'}
                 onChange={() => setMaritalStatus('widowed')}
               />
-              <label class='form-check-label' for='widowed'>
-                Widowed
-              </label>
+                <label class='form-check-label' for='widowed'>
+                  Widowed
+                </label>
             </Grid>
             <Grid item>
               <Checkbox
                 checked={marital_status === 'divorced'}
                 onChange={() => setMaritalStatus('divorced')}
               />
-              <label class='form-check-label' for='divorced'>
-                Divorced
-              </label>
+                <label class='form-check-label' for='divorced'>
+                  Divorced
+                </label>
             </Grid>
           </Grid>
 
           <label className='mt-4'>No. Of Children:</label>
-          <Input
-            type='number'
-            label='No. of Children'
-            id='amount'
-            name='amount'
-            inputProps={{ maxLength: 12 }}
-            placeholder='No. of Children'
-            value={no_of_children}
-            sx={{ width: '100%' }}
-            onChange={e => setChildrenNo(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <Groups3Icon />
-              </InputAdornment>
-            }
-            variant='outlined'
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='number'
+                label='No. of Children'
+                id='amount'
+                name='amount'
+                className='bordered form-control '
+                inputProps={{ maxLength: 12 }}
+                placeholder='No. of Children'
+                value={no_of_children}
+                onChange={(e) => setChildrenNo(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Date of Birth:</label>
-          <DatePicker
-            onChange={e => setDate(moment(e).format('DD-MM-YYYY'))}
-            size='large'
-            width='100%'
-            className='form-control'
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Space direction='vertical'>
+                <DatePicker onChange={(e) => setDate(moment(e).format('DD-MM-YYYY'))} />
+              </Space>
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Nationality:</label>
-          <select
-            className='form-control required'
-            onChange={e => handleCountryInput(e.target.value)}
-          >
-            <option value='None'>Select Country</option>
-            {filterCountries.map(country => (
-              <option value={country.isoCode} key={country.isoCode}>
-                {country.name}
-              </option>
-            ))}
-          </select>
+          <Grid container direction='row'>
+            <Grid>
+              <select
+                className='form-control required'
+                onChange={e => handleCountryInput(e.target.value)}
+              >
+                <option value='None'>Select Country</option>
+                {filterCountries.map(country => (
+                  <option value={country.isoCode} key={country.isoCode}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
+            </Grid>
+          </Grid>
 
-          <select
-            className='form-control mt-3 required'
-            onChange={e => handleStateInput(e.target.value)}
-          >
-            <option value='None'>Select State</option>
-            {states.map(s => (
-              <option value={s.isoCode} key={s.name}>
-                {s.name}
-              </option>
-            ))}
-          </select>
-
-          <select
-            onChange={e => handleCityInput(e)}
-            className='form-control mt-3 required'
-          >
-            <option value='None'>Select City</option>
-            {cities.map(c => (
-              <option key={c.name}>{c.name}</option>
-            ))}
-          </select>
-
+          <Grid container direction='row' spacing={2}>
+            <Grid item>
+              
+              <select
+                className='form-control mt-3 required'
+                onChange={e => handleStateInput(e.target.value)}
+              >
+                <option value='None'>Select State</option>
+                {states.map(s => (
+                  <option value={s.isoCode} key={s.name}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+            </Grid>
+            <Grid item>
+              <select
+                onChange={e => handleCityInput(e)}
+                className='form-control mt-3 required'
+              >
+                <option value='None'>Select City</option>
+                {cities.map(c => (
+                  <option key={c.name}>{c.name}</option>
+                ))}
+              </select>
+            </Grid>
+          </Grid>
           <label className='mt-4'>Email:</label>
-          <Input
-            type='email'
-            label='Email'
-            id='email'
-            name='email'
-            className='bordered form-control'
-            placeholder='Email Address'
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <AlternateEmailIcon />
-              </InputAdornment>
-            }
-          />
-
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='email'
+                label='Email'
+                id='email'
+                name='email'
+                className='bordered form-control'
+                placeholder='Email Address'
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </Grid>
+          </Grid>
           <label className='mt-3'>Phone Number:</label>
           <MuiTelInput
             value={phone_no}
@@ -591,151 +586,157 @@ function Membership () {
                 checked={type_of_membership === 'student'}
                 onChange={() => setMembershipType('student')}
               />
-              <label class='form-check-label' for='student'>
-                Student
-              </label>
+                <label class='form-check-label' for='student'>
+                  Student
+                </label>
             </Grid>
             <Grid item>
-              <Checkbox
+                <Checkbox
                 checked={type_of_membership === 'graduate'}
                 onChange={() => setMembershipType('graduate')}
               />
-              <label class='form-check-label' for='staff'>
-                Staff
-              </label>
+                <label class='form-check-label' for='staff'>
+                  Staff
+                </label>
             </Grid>
 
             <Grid item>
-              <Checkbox
+                <Checkbox
                 checked={type_of_membership === 'parent'}
                 onChange={() => setMembershipType('parent')}
               />
-              <label class='form-check-label' for='other'>
-                Other
-              </label>
+                <label class='form-check-label' for='other'>
+                  Other
+                </label>
             </Grid>
           </Grid>
 
           <label className='mt-4'>Department:</label>
-          <Input
-            type='text'
-            label='Department'
-            id='department'
-            name='department'
-            className='bordered form-control'
-            placeholder='Department'
-            value={department}
-            onChange={e => setDepartment(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <ContactMailIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Department'
+                id='department'
+                name='department'
+                className='bordered form-control'
+                placeholder='Department'
+                value={department}
+                onChange={e => setDepartment(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Level:</label>
-          <Input
-            type='text'
-            label='Level'
-            id='level'
-            name='level'
-            className='bordered form-control'
-            placeholder='Level'
-            value={level}
-            onChange={e => setLevel(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <ElevatorIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Level'
+                id='level'
+                name='level'
+                className='bordered form-control'
+                placeholder='Level'
+                value={level}
+                onChange={e => setLevel(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Permanent Address:</label>
-          <Input
-            type='text'
-            label='Permanent Address'
-            id='permAddress'
-            name='permAddress'
-            className='bordered form-control'
-            placeholder='Permanent Address'
-            style={{ height: '100px', width: '100%' }}
-            value={permanent_address}
-            onChange={e => setPermanentAddress(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <HomeIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Permanent Address'
+                id='permAddress'
+                name='permAddress'
+                className='bordered form-control'
+                placeholder='Permanent Address'
+                style={{ height: '100px', width: '100%' }}
+                value={permanent_address}
+                onChange={e => setPermanentAddress(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Contact Address:</label>
-          <Input
-            type='text'
-            label='Contact Address'
-            id='contactAddress'
-            name='contactAddress'
-            className='bordered form-control'
-            placeholder='Contact Address'
-            style={{ height: '100px', width: '100%' }}
-            value={contact_address}
-            onChange={e => setContactAddress(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <HomeIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Contact Address'
+                id='contactAddress'
+                name='contactAddress'
+                className='bordered form-control'
+                placeholder='Contact Address'
+                style={{ height: '100px', width: '100%' }}
+                value={contact_address}
+                onChange={e => setContactAddress(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Residential Address:</label>
-          <Input
-            type='text'
-            label='Residential Address'
-            id='residentialAddress'
-            name='residentialAddress'
-            className='bordered form-control'
-            placeholder='Residential Address'
-            style={{ height: '100px', width: '100%' }}
-            value={residential_address}
-            onChange={e => setResidentialAddress(e.target.value)}
-            startAdornment={
-              <InputAdornment position='start'>
-                <HomeIcon />
-              </InputAdornment>
-            }
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Residential Address'
+                id='residentialAddress'
+                name='residentialAddress'
+                className='bordered form-control'
+                placeholder='Residential Address'
+                style={{ height: '100px', width: '100%' }}
+                value={residential_address}
+                onChange={e => setResidentialAddress(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Next of Kin Name:</label>
-          <Input
-            type='text'
-            label='Next of Kin'
-            id='nextOfKin'
-            name='nextOfKin'
-            className='bordered form-control'
-            placeholder='Next of Kin'
-            value={next_of_kin_name}
-            onChange={e => setNextOfKinName(e.target.value)}
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Next of Kin'
+                id='nextOfKin'
+                name='nextOfKin'
+                className='bordered form-control'
+                placeholder='Next of Kin'
+                value={next_of_kin_name}
+                onChange={e => setNextOfKinName(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Next of Kin Phone No.:</label>
-          <MuiTelInput
-            className='form-control mt-3'
-            placeholder='Phone Number (+234)'
-            value={next_of_kin_phone_no}
-            onChange={handleNextOfKinPhoneChange}
-          />
-
+          <Grid container direction='row'>
+            <Grid>
+             <MuiTelInput
+                className='form-control mt-3'
+                placeholder='Phone Number (+234)'
+                value={next_of_kin_phone_no}
+                onChange={handleNextOfKinPhoneChange}
+              />
+            </Grid>
+          </Grid>
           <label className='mt-4'>Next of Kin Address:</label>
-          <Input
-            type='text'
-            label='Next of Kin Address'
-            id='nextOfKinAddress'
-            name='nextOfKinAddress'
-            className='bordered form-control'
-            placeholder='Next of Kin Address'
-            style={{ height: '100px', width: '100%' }}
-            value={next_of_kin_address}
-            onChange={e => setNextOfKinAddress(e.target.value)}
-          />
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Next of Kin Address'
+                id='nextOfKinAddress'
+                name='nextOfKinAddress'
+                className='bordered form-control'
+                placeholder='Next of Kin Address'
+                style={{ height: '100px', width: '100%' }}
+                value={next_of_kin_address}
+                onChange={e => setNextOfKinAddress(e.target.value)}
+              />
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Are you Born Again:</label>
           <Grid container direction='row' spacing={2}>
@@ -744,18 +745,18 @@ function Membership () {
                 checked={born_again === 'yes'}
                 onChange={() => setBornAgain('yes')}
               />
-              <label class='form-check-label' for='yesBornAgain'>
-                Yes
-              </label>
+                <label class='form-check-label' for='yesBornAgain'>
+                  Yes
+                </label>
             </Grid>
             <Grid item>
               <Checkbox
                 checked={born_again === 'no'}
                 onChange={() => setBornAgain('no')}
               />
-              <label class='form-check-label' for='noBornAgain'>
-                No
-              </label>
+                <label class='form-check-label' for='noBornAgain'>
+                  No
+                </label>
             </Grid>
           </Grid>
 
@@ -766,18 +767,19 @@ function Membership () {
                 checked={baptized === 'yes'}
                 onChange={() => setBaptized('yes')}
               />
-              <label class='form-check-label' for='yesBaptized'>
-                Yes
-              </label>
+                <label class='form-check-label' for='yesBaptized'>
+                  Yes
+                </label>
+
             </Grid>
             <Grid item>
               <Checkbox
                 checked={baptized === 'no'}
                 onChange={() => setBaptized('no')}
               />
-              <label class='form-check-label' for='noBaptized'>
-                No
-              </label>
+                <label class='form-check-label' for='noBaptized'>
+                  No
+                </label>
             </Grid>
           </Grid>
 
@@ -788,18 +790,18 @@ function Membership () {
                 checked={baptism_method === 'immersion'}
                 onChange={() => setBaptismMethod('immersion')}
               />
-              <label class='form-check-label' for='yesWaterBaptism'>
-                Immersion
-              </label>
+                <label class='form-check-label' for='yesWaterBaptism'>
+                  Immersion
+                </label>
             </Grid>
             <Grid item>
-              <Checkbox
+              <Checkbox 
                 checked={baptism_method === 'sprinkling'}
                 onChange={() => setBaptismMethod('sprinkling')}
               />
-              <label class='form-check-label' for='noWaterBaptism'>
-                Sprinkling
-              </label>
+                <label class='form-check-label' for='noWaterBaptism'>
+                  Sprinkling
+                </label>
             </Grid>
           </Grid>
 
@@ -810,18 +812,18 @@ function Membership () {
                 checked={holy_ghost_baptism === 'yes'}
                 onChange={() => setHolyGhostBaptism('yes')}
               />
-              <label class='form-check-label' for='yesHolyGhostBaptism'>
-                Yes
-              </label>
+                <label class='form-check-label' for='yesHolyGhostBaptism'>
+                  Yes
+                </label>
             </Grid>
             <Grid item>
               <Checkbox
                 checked={holy_ghost_baptism === 'no'}
                 onChange={() => setHolyGhostBaptism('no')}
               />
-              <label class='form-check-label' for='noHolyGhostBaptism'>
-                No
-              </label>
+                <label class='form-check-label' for='noHolyGhostBaptism'>
+                  No
+                </label>
             </Grid>
           </Grid>
 
@@ -830,54 +832,60 @@ function Membership () {
           </label>
           <Grid container direction='row' spacing={2}>
             <Grid item>
-              <Checkbox
+                  <Checkbox
                 checked={speaking_in_tongues === 'yes'}
                 onChange={() => setSpeakingInTongues('yes')}
               />
-              <label class='form-check-label' for='yesSpeakinInTongues'>
-                Yes
-              </label>
+                <label class='form-check-label' for='yesSpeakinInTongues'>
+                  Yes
+                </label>
             </Grid>
             <Grid item>
               <Checkbox
                 checked={speaking_in_tongues === 'no'}
                 onChange={() => setSpeakingInTongues('no')}
               />
-              <label class='form-check-label' for='noSpeakinInTongues'>
-                No
-              </label>
+                <label class='form-check-label' for='noSpeakinInTongues'>
+                  No
+                </label>
             </Grid>
           </Grid>
 
           <label className='mt-4'>
             Chapel Service Unit (or intended unit):
           </label>
-          <select className='form-control required'>
-            <option value=''>Service Unit</option>
-          </select>
+          <Grid container direction='row'>
+            <Grid>
+              <select className='form-control required'>
+                <option value=''>Service Unit</option>
+              </select>
+            </Grid>
+          </Grid>
 
           <label className='mt-4'>Comments:</label>
-          <Input
-            type='text'
-            label='Comments'
-            id='comments'
-            name='comments'
-            className='bordered form-control'
-            placeholder='Comments'
-            style={{ height: '100px', width: '100%', marginBottom: '20px' }}
-            value={content}
-            onChange={e => setContent(e.target.value)}
-          />
-
+          <Grid container direction='row'>
+            <Grid>
+              <Input
+                type='text'
+                label='Comments'
+                id='comments'
+                name='comments'
+                className='bordered form-control'
+                placeholder='Comments'
+                style={{ height: '100px', width: '100%' }}
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              />
+            </Grid>
+          </Grid>
           <FileUploader
             multiple={true}
             handleChange={handleUploadFileChange}
             name='file'
             className='form-control'
-            style={{ height: '300px', marginTop:'20px' }}
+            style={{ height: '300px', marginTop: '20px' }}
             types={fileTypes}
           />
-
           <Button
             variant='contained'
             size='small'
@@ -888,7 +896,11 @@ function Membership () {
             Submit
           </Button>
         </Grid>
-        <Grid sx={{ mb: 3 }} align='center' className='text-center'>
+        {/* <Grid item xs={12} sm={12}>
+          
+        </Grid> */}
+
+        <Grid sx={{mb:3}} align='center' className='text-center'>
           Thank you for the time you took to fill the form. We will communicate
           with you shortly
         </Grid>

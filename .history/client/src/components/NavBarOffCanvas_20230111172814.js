@@ -117,30 +117,24 @@ function NavBarOffCanvas () {
                       Membership
                     </Link>
                   </a>
-                  <a class='nav-link'>
+                </div>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link'>
                   <Link
-                    to='/response-form'
+                    to='/about'
                     style={{
                       backgroundColour: 'transparent',
                       textDecoration: 'none',
                       color: 'blue'
                     }}
                   >
-                    Response Form
+                    About Us
                   </Link>
                 </a>
-                </div>
               </li>
-
-              <li class='nav-item dropdown'>
-                <a
-                  class='nav-link dropdown-toggle'
-                  href='#'
-                  id='navbarDropdownMenuLink'
-                  data-toggle='dropdown'
-                  aria-haspopup='true'
-                  aria-expanded='false'
-                >
+              <li class='nav-item'>
+                <a class='nav-link'>
                   <Link
                     to='/units'
                     style={{
@@ -152,39 +146,7 @@ function NavBarOffCanvas () {
                     Units
                   </Link>
                 </a>
-                <div
-                  class='dropdown-menu'
-                  aria-labelledby='navbarDropdownMenuLink'
-                >
-
-                  <a class='nav-link'>
-                  <Link
-                    to='/bible-study'
-                    style={{
-                      backgroundColour: 'transparent',
-                      textDecoration: 'none',
-                      color: 'blue'
-                    }}
-                  >
-                    Bible Study
-                  </Link>
-                  </a>
-                  <a class='nav-link'>
-                  <Link
-                    to='/children-unit'
-                    style={{
-                      backgroundColour: 'transparent',
-                      textDecoration: 'none',
-                      color: 'blue'
-                    }}
-                  >
-                    Children Unit
-                  </Link>
-                </a>
-                </div>
               </li>
-
-             
               <li class='nav-item'>
                 <a class='nav-link'>
                   <Link

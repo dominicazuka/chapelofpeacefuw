@@ -120,23 +120,22 @@ function Units () {
     transition: theme.transitions.create('opacity')
   }))
 
-
   const styles = {
-   media: {
+    media: {
       height: 0,
       paddingTop: '56.25%' // 16:9
-   },
-   card: {
-      position: 'relative',
-   },
-   overlay: {
+    },
+    card: {
+      position: 'relative'
+    },
+    overlay: {
       position: 'absolute',
       top: '20px',
       left: '20px',
       color: 'black',
       backgroundColor: 'white'
-   }
-}
+    }
+  }
 
   return (
     <>
@@ -216,30 +215,15 @@ function Units () {
           direction='column'
           justifyContent='center'
           alignItems='center'
-          sx={{paddingTop: 10}}
+          sx={{ paddingTop: 10 }}
         >
-          <Card sx={{ minWidth: '100%'}}>
-             <Box sx={{ position: 'relative' }}>
+          <Card sx={{ minWidth: '100%' }}>
             <CardMedia
               component='img'
               height='500'
               image='https://www1.cbn.com/sites/default/files/cbnnews/Church_SI.jpg'
             />
-            <Box
-      sx={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        bgcolor: 'rgba(0, 0, 0, 0.54)',
-        color: 'white',
-        padding: '10px',
-      }}
-    >
-      <Typography variant="h3" sx={{color:'white'}}>Worshipping in Spirit and in truth...</Typography>
-      <Typography variant="body2">Subtitle</Typography>
-              </Box>
-              </Box>
+            <div style={styles.overlay}>this text should overlay the image</div>
           </Card>
         </Grid>
       </Grid>

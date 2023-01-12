@@ -864,7 +864,7 @@ function Membership () {
             name='comments'
             className='bordered form-control'
             placeholder='Comments'
-            style={{ height: '100px', width: '100%', marginBottom: '20px' }}
+            style={{ height: '100px', width: '100%', marginBottom: '10px' }}
             value={content}
             onChange={e => setContent(e.target.value)}
           />

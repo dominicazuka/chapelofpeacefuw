@@ -219,7 +219,6 @@ function Units () {
           sx={{paddingTop: 10}}
         >
           <Card sx={{ minWidth: '100%'}}>
-             <Box sx={{ position: 'relative' }}>
             <CardMedia
               component='img'
               height='500'
@@ -236,10 +235,9 @@ function Units () {
         padding: '10px',
       }}
     >
-      <Typography variant="h3" sx={{color:'white'}}>Worshipping in Spirit and in truth...</Typography>
+      <Typography variant="h5">Lizard</Typography>
       <Typography variant="body2">Subtitle</Typography>
-              </Box>
-              </Box>
+    </Box>
           </Card>
         </Grid>
       </Grid>

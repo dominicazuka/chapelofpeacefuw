@@ -864,7 +864,7 @@ function Membership () {
             name='comments'
             className='bordered form-control'
             placeholder='Comments'
-            style={{ height: '100px', width: '100%', marginBottom: '20px' }}
+            style={{ height: '100px', width: '100%' }}
             value={content}
             onChange={e => setContent(e.target.value)}
           />
@@ -874,7 +874,7 @@ function Membership () {
             handleChange={handleUploadFileChange}
             name='file'
             className='form-control'
-            style={{ height: '300px', marginTop:'20px' }}
+            style={{ height: '300px' }}
             types={fileTypes}
           />
 

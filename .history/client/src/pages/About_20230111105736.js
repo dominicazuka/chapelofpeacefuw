@@ -52,7 +52,7 @@ function About() {
           columns={12}
           justifyContent="center"
           alignItems="center"
-          style={{ padding: '10px' }}
+          style={{ padding: '50px' }}
           // sx={{mx: 'auto'}}
         >
           {/**LHS**/}
