@@ -3,7 +3,7 @@ const { insertMemoryVerse, getMemoryVerse } = require('../model/memoryVerse.mode
 const getMemoryVerseService = async () => {
   try {
   const result = await getMemoryVerse()
-    return { data: result, error: false, statusCode: 200, message: 'Success' }
+    return { data: [], error: false, statusCode: 200, message: 'Success' }
   } catch {
     return { data: [], error: true, statusCode: 500, message: 'Error' }
   }

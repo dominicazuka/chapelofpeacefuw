@@ -1,8 +1,8 @@
-const { insertPartner, getPartner } = require('../model/partner.model')
+const { insertPartner } = require('../model/partner.model')
 
 const getPartnerService = async () => {
   try {
-  const result = await getPartner()
+  const result = await insertPartner()
     return { data: result, error: false, statusCode: 200, message: 'Success' }
   } catch {
     return { data: [], error: true, statusCode: 500, message: 'Error' }

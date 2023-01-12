@@ -2,7 +2,12 @@ const { insertSlider, getSlider } = require('../model/slider.model')
 
 const getSliderService = async () => {
   try {
-  const result = await getSlider()
+  const result = await getSlider
+  
+  
+  
+  
+    ()
     return { data: result, error: false, statusCode: 200, message: 'Success' }
   } catch {
     return { data: [], error: true, statusCode: 500, message: 'Error' }

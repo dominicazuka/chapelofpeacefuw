@@ -32,4 +32,4 @@ const getPrayerMeetingBulletin = async (req, res) => {
   } catch (error) {}
 }
 
-module.exports = { insertPrayerMeetingBulletin, getPrayerMeetingBulletin }
+module.exports = { insertPrayerMeetingBulletin }

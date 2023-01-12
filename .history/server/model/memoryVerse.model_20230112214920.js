@@ -33,4 +33,4 @@ const getMemoryVerse = async (req, res) => {
 }
 
 
-module.exports = { insertMemoryVerse, getMemoryVerse }
+module.exports = { insertMemoryVerse, insertMemoryVerse }

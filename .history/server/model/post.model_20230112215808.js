@@ -1,14 +1,14 @@
-const { SliderModel } = require('../db')
+const { PostModel } = require('../db')
 const { generateHash } = require('../utils')
 
-const insertSlider = async payload => {
+const insertPost = async payload => {
   try {
-    const slider = await SliderModel.create(payload)
+    const post = await PostModel.create(payload)
     return {
       error: false,
-      message: 'Slider Data Submitted Successfully',
+      message: 'Post Data Submitted Successfully',
       statusCode: 201,
-      data: slider
+      data: post
     }
   } catch (error) {
     return {
@@ -20,17 +20,17 @@ const insertSlider = async payload => {
   }
 }
 
-const getSlider = async (req, res) => {
+const getPost = async (req, res) => {
   try {
-    const alSlider = await SliderModel.findAll()
+    const allPosts = await PostModel.findAll()
     return {
       error: false,
       message: 'Query Successfully',
       statusCode: 201,
-      data: alSlider
+      data: allPosts
     }
   } catch (error) {}
 }
 
 
-module.exports = { insertSlider, getSlider }
+module.exports = { insertPost }

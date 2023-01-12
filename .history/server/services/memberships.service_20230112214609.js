@@ -1,4 +1,4 @@
-const { insertMemberships, getMemberships } = require('../model/memberships.model')
+const { insertMemberships } = require('../model/memberships.model')
 
 const getMembershipsService = async () => {
   try {
